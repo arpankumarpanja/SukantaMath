@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.css" rel="stylesheet" />
+    <title>Document</title>
+</head>
+<body>
+    <!-- Section: Design Block -->
+    <section class="text-center">
+        <!-- Background image -->
+        <div class="p-5 bg-image" style="
+          background-image: url('https://mdbootstrap.com/img/new/textures/full/171.jpg');
+          height: 300px;
+          "></div>
+        <!-- Background image -->
+
+        <div class="card mx-4 mx-md-5 shadow-5-strong" style="
+          margin-top: -100px;
+          background: hsla(0, 0%, 100%, 0.8);
+          backdrop-filter: blur(30px);
+          ">
+            <div class="card-body py-5 px-md-5">
+
+                <div class="row d-flex justify-content-center">
+                    <div class="col-lg-8">
+                        <h2 class="fw-bold mb-5">Register now</h2>
+                        <form action="/registerPost" method="post">
+                            <!-- 2 column grid layout with text inputs for the first and last names -->
+
+                            <!-- 1. first name / Last name -->
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <div class="form-outline">
+                                        <input type="text" id="first_name" class="form-control" name="first_name" required />
+                                        <label class="form-label" for="first_name">1. First name</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="form-outline">
+                                        <input type="text" id="last_name" class="form-control" name="last_name" required />
+                                        <label class="form-label" for="last_name">2. Last Name</label>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <!-- 2. email / ph no -->
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <div class="form-outline">
+                                        <input type="email" id="email" class="form-control" name="email" required />
+                                        <label class="form-label" for="email">3. Email ID</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="form-outline">
+                                        <input type="number" id="ph_no" class="form-control" name="ph_no" required />
+                                        <label class="form-label" for="ph_no">4. Phone No</label>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <!-- 3. gurdian name / ph no -->
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <div class="form-outline">
+                                        <input type="text" id="gurdian_name" class="form-control" name="gurdian_name" required />
+                                        <label class="form-label" for="gurdian_name">5. Gurdian Name</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="form-outline">
+                                        <input type="number" id="gurdian_ph" class="form-control" name="gurdian_ph" required />
+                                        <label class="form-label" for="gurdian_ph">6. Gurdian Contact No</label>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <!-- 4. gender / education_level / course_section -->
+                            <div class="row" style="text-align: left;">
+                                <div class="form-group col-md-4 mb-4">
+                                    <label for="gender" class="form-label mb-1">7. Gender</label>
+                                    <select id="gender" name="gender" class="form-control" required>
+                                      <option value="Male">Male</option>
+                                      <option value="Female">Female</option>
+                                      <option value="Others">Others</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-4 mb-4">
+                                  <label for="education_level" class="mb-1 form-label">8. Education Level</label>
+                                  <select id="education_level" name="education_level" class="form-control addCourse" required>
+                                    <option value="School">School</option>
+                                    <option value="B.Sc Honours">B.Sc Honours</option>
+                                    <option value="B.Sc General">B.Sc General</option>
+                                    <option value="BCA">BCA</option>
+                                    <option value="Entrance">Entrance Exam</option>
+                                  </select>
+                                </div>
+                                <div class="form-group col-md-4 mb-4">
+                                  <label for="course_section" class="mb-1">9. Course Section</label>
+                                  <select id="course_section" name="course_section" class="form-control addCategory" required>
+                                    <option value="Class XI">Class XI</option>
+                                    <option value="Class XII">Class XII</option>
+                                    <option value="Semester 1">Semester 1</option>
+                                    <option value="Semester 2">Semester 2</option>
+                                    <option value="Semester 3">Semester 3</option>
+                                    <option value="Semester 4">Semester 4</option>
+                                    <option value="Semester 5">Semester 5</option>
+                                    <option value="Semester 6">Semester 6</option>
+                                    <option value="JEE">JEE</option>
+                                    <option value="M.Sc">M.Sc</option>
+                                    <option value="S.S.C">S.S.C</option>
+                                  </select>
+                                </div>
+                            </div>
+
+
+
+                            <!-- 5. institution -->
+                            <div class="form-outline mb-4">
+                                <input type="text" id="institution" name="institution" class="form-control" required/>
+                                <label class="form-label" for="institution">10. Institution</label>
+                            </div>
+
+                            <!-- 6. Address -->
+                            <div class="form-outline mb-4">
+                                <input type="text" id="address" name="address" class="form-control" required/>
+                                <label class="form-label" for="address">11. Address</label>
+                            </div>
+
+                            <!-- Password input -->
+                            <div class="form-outline mb-4">
+                                <input type="password" id="password" class="form-control" name="password" required/>
+                                <label class="form-label" for="password">12. Password</label>
+                            </div>
+
+                            <!-- Submit button -->
+                            <button type="submit" class="btn btn-primary btn-block mb-4">
+                                Sign up
+                            </button>
+                        </form>
+
+                        <div class="text-center">
+                            <p>Already a User?  <a href="/login">Login Here</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Section: Design Block -->
+
+    <!-- MDB -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.js"></script>
+</body>
+</html>

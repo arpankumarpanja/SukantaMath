@@ -1,0 +1,82 @@
+  .dropdown {
+    /* display: inline-block; */
+    position: relative;
+  }
+  
+  .dropdown-options {
+    display: none;
+    position: absolute;
+    overflow: auto;
+    background-color:#fff;
+    border-radius:5px;
+    box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.4);
+    z-index: 0;
+  }
+  
+  .dropdown:hover .dropdown-options {
+    display: block;
+    margin-top: 5px;
+    right: 0px;
+    min-width: 150px;
+    z-index: 1000;
+  }
+  
+  .dropdown-options a {
+    display: block;
+    color: #000000;
+    padding: 5px;
+    text-decoration: none;
+    padding:5px 20px;
+  }
+  
+  .dropdown-options a:hover {
+    color: #0a0a23;
+    background-color: #ddd;
+    border-radius:5px;
+  }
+
+  .navActivePage{
+    color: white;
+    background-color: rgb(49, 9, 211);
+    box-shadow: 1px 2px 5px 3px wheat;
+    /* border-radius:5px;
+    border: 5px solid white; */
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  .slidebarDiv{
+    width: 90%;
+    height: auto;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background-attachment: fixed;
+    background-image: url('https://images.pexels.com/photos/4144923/pexels-photo-4144923.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-size: 100% 100%;
+    z-index: -1;
+    box-shadow: 1px 2px 10px 7px black;
+    animation: slider 20s infinite linear;
+  }
+
+  @keyframes slider {
+    0%{background-image: url('1GROUP\ PIC\ 2020.jpg');}
+    25%{background-image: url('https://images.pexels.com/photos/5088008/pexels-photo-5088008.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');}
+    50%{background-image: url('https://images.pexels.com/photos/4144923/pexels-photo-4144923.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');}
+    75%{background-image: url('2GROUP\ PIC2021.jpg');}
+
+    /* 75%{background-image: url('https://images.pexels.com/photos/2388936/pexels-photo-2388936.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');} */
+    100%{background-image: url('https://images.pexels.com/photos/4144531/pexels-photo-4144531.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');}
+  }

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title><%= title %></title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container card mt-4">
+  <h2 class="card-header text-center bg-gray-900" style="background-color: lightseagreen; color: white;"><%= title %></h2>
+  <div class="card-body">
+    <form action="/SavePdf" method="post">
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <label for="education_level">Education Level</label>
+          <select id="education_level" name="education_level" class="form-control addCourse" required>
+            <option value="School">School</option>
+            <option value="B.Sc Honours">B.Sc Honours</option>
+            <option value="B.Sc General">B.Sc General</option>
+            <option value="BCA">BCA</option>
+            <option value="Entrance">Entrance Exam</option>
+          </select>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="course_section">Course Section/Category</label>
+          <select id="course_section" name="course_section" class="form-control addCategory" required>
+            <option value="Class XI">Class XI</option>
+            <option value="Class XII">Class XII</option>
+            <option value="Semester 1">Semester 1</option>
+            <option value="Semester 2">Semester 2</option>
+            <option value="Semester 3">Semester 3</option>
+            <option value="Semester 4">Semester 4</option>
+            <option value="Semester 5">Semester 5</option>
+            <option value="Semester 6">Semester 6</option>
+            <option value="JEE">JEE</option>
+            <option value="M.Sc">M.Sc</option>
+            <option value="S.S.C">S.S.C</option>
+          </select>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="pdf_type">PDF Type</label>
+          <select id="pdf_type" name="pdf_type" class="form-control addPdfType" required>
+            <option value="Syllabus">Syllabus</option>
+            <option value="Important Notes">Important Notes</option>
+            <option value="Sample Question">Sample Questions</option>
+            <option value="Previous Year Questions">Previous Year Questions</option>
+            <option value="Youtube Videos">Youtube Videos</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="pdf_name">PDF Name</label>
+        <input type="text" class="form-control" id="pdf_name" name="pdf_name" placeholder="Enter PDF Name" required/>
+      </div>
+      <div class="form-group">
+        <label for="pdf_link">PDF Link</label>
+        <input type="url" class="form-control" id="pdf_link" name="pdf_link" placeholder="Enter PDF Link/url" required/>
+      </div>
+      
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</div>
+
+</body>
+</html>

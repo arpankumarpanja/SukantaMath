@@ -1,0 +1,103 @@
+database for pdf:======================================
+1.pdf_id(auto)	2.course code(education leve, course section)	3.G-drive link 4.pdf name	5.pdf type
+pdf_id  course_level    course_section  pdf_link    pdf_name    pdf_type
+
+
+student details for register:==========================
+1. student_id (auto)
+2. first_name	3. last_name	
+4. email	5. ph_no
+6. gurdian_name	7. gurdian_ph
+8. gender	9. education_level	10. course_section
+11. institution	
+12. address 
+13. password
+14. permission(Approve / Decline)
+
+course page integration:===============================
+path=(ejs:course/"course_code")
+code=req.param
+(js:course/:edu_lvl/:sub_sec)
+
+sql for pdfs:==========================================
+1. select * from pdfs where education_level="course_code" and pdf_type="syllabus";
+2. select * from pdfs where education_level="course_code" and pdf_type="notes";
+3. select * from pdfs where education_level="course_code" and pdf_type="prev_ques";
+4. select * from pdfs where education_level="course_code" and pdf_type="smpl_ques";
+
+
+
+Host: sql6.freesqldatabase.com
+Database name: sql6587558
+Database user: sql6587558
+Database password: mS5PZ1zzcN
+Port number: 3306
+
+
+
+freesqldatabase.com password: passworD@9876543210
+email: mathsukanta2022@gmail.com
+
+
+CREATE TABLE `studentTable` (
+  `student_id` int(20) NOT NULL AUTO_INCREMENT,
+  `first_name` varchar(30) NOT NULL,
+  `last_name` varchar(30) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `ph_no` varchar(20) NOT NULL,
+  `gurdian_name` varchar(50) NOT NULL,
+  `gurdian_ph` varchar(20) NOT NULL,
+  `gender` varchar(20) NOT NULL,
+  `education_level` varchar(30) NOT NULL,
+  `course_section` varchar(30) NOT NULL,
+  `institution` varchar(100) NOT NULL,
+  `address` varchar(300) NOT NULL,
+  `password` varchar(300) NOT NULL,
+  `reg_DateTime` varchar(100) NOT NULL,
+  `permission` varchar(20) NOT NULL,
+  PRIMARY KEY (`student_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+
+
+ALTER TABLE `studentTable`
+  MODIFY `student_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+
+
+
+
+
+
+CREATE TABLE `pdfTable` (
+  `pdf_id` int(11) NOT NULL primary key,
+  `education_level` varchar(25) NOT NULL,
+  `course_section` varchar(25) NOT NULL,
+  `pdf_type` varchar(30) NOT NULL,
+  `pdf_name` varchar(150) NOT NULL,
+  `pdf_link` varchar(200) NOT NULL,
+  `DateTime` varchar(60) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+ALTER TABLE `pdfTable`
+  MODIFY `pdf_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+
+
+
+
+
+
+
+CREATE TABLE `adminTable` (
+  `admin_id` int(50) NOT NULL AUTO_INCREMENT,
+  `user_name` varchar(50) NOT NULL,
+  `password` varchar(300) NOT NULL,
+  PRIMARY KEY (`admin_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+
+
+ALTER TABLE `adminTable`
+  MODIFY `admin_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+
+
+
+

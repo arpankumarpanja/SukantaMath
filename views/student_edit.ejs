@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title><%= title %></title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container card mt-4 mb-5">
+  <h2 class="card-header text-center bg-gray-900" style="background-color: lightseagreen; color: white;"><%= title %></h2>
+  <div class="card-body">
+    <form action="/UpdateStudent" method="post">
+        <!-- ---------- student id----------- -->
+        <div class="form-group">
+            <label for="student_id">PDF ID</label>
+            <input type="text" class="form-control" id="student_id" name="student_id" placeholder="Enter Student ID" value="<%= selected_student.student_id %>" required readonly/>
+          </div>
+
+
+        <!-- 1. first name / Last name -->
+        <div class="form-row">
+            <div class="col-md-6 mb-4">
+                <div class="form-outline">
+                    <label class="form-label" for="first_name">1. First name</label>
+                    <input type="text" id="first_name" class="form-control" name="first_name" value="<%= selected_student.first_name %>"  required />
+                </div>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="form-outline">
+                    <label class="form-label" for="last_name">2. Last Name</label>
+                    <input type="text" id="last_name" class="form-control" name="last_name" value="<%= selected_student.last_name %>" required />
+                </div>
+            </div>
+        </div>
+
+
+        <!-- 2. email / ph no -->
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <div class="form-outline">
+                    <label class="form-label" for="email">3. Email ID</label>
+                    <input type="email" id="email" class="form-control" name="email" value="<%= selected_student.email %>" required />
+                </div>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="form-outline">
+                    <label class="form-label" for="ph_no">4. Phone No</label>
+                    <input type="number" id="ph_no" class="form-control" name="ph_no" value="<%= selected_student.ph_no %>" required />
+                </div>
+            </div>
+        </div>
+
+
+        <!-- 3. gurdian name / ph no -->
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <div class="form-outline">
+                    <label class="form-label" for="gurdian_name">5. Gurdian Name</label>
+                    <input type="text" id="gurdian_name" class="form-control" name="gurdian_name" value="<%= selected_student.gurdian_name %>" required />
+                </div>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="form-outline">
+                    <label class="form-label" for="gurdian_ph">6. Gurdian Contact No</label>
+                    <input type="number" id="gurdian_ph" class="form-control" name="gurdian_ph" value="<%= selected_student.gurdian_ph %>" required />
+                </div>
+            </div>
+        </div>
+
+
+        <!-- 4. gender / education_level / course_section -->
+        <div class="row" style="text-align: left;">
+            <div class="form-group col-md-4 mb-4">
+                <label for="gender" class="form-label">7. Gender</label>
+                <select id="gender" name="gender" class="form-control" required>
+                  <option value="<%= selected_student.gender %>"><%= selected_student.gender %></option>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                  <option value="Others">Others</option>
+                </select>
+            </div>
+            <div class="form-group col-md-4 mb-4">
+              <label for="education_level" class="form-label">8. Education Level</label>
+              <select id="education_level" name="education_level" class="form-control addCourse" required>
+                <option value="<%= selected_student.education_level %>"><%= selected_student.education_level %></option>
+                <option value="School">School</option>
+                <option value="B.Sc Honours">B.Sc Honours</option>
+                <option value="B.Sc General">B.Sc General</option>
+                <option value="BCA">BCA</option>
+                <option value="Entrance">Entrance Exam</option>
+              </select>
+            </div>
+            <div class="form-group col-md-4 mb-4">
+              <label for="course_section" class="form-label">9. Course Section</label>
+              <select id="course_section" name="course_section" class="form-control addCategory" required>
+                <option value="<%= selected_student.course_section %>"><%= selected_student.course_section %></option>
+                <option value="Class XI">Class XI</option>
+                <option value="Class XII">Class XII</option>
+                <option value="Semester 1">Semester 1</option>
+                <option value="Semester 2">Semester 2</option>
+                <option value="Semester 3">Semester 3</option>
+                <option value="Semester 4">Semester 4</option>
+                <option value="Semester 5">Semester 5</option>
+                <option value="Semester 6">Semester 6</option>
+                <option value="JEE">JEE</option>
+                <option value="M.Sc">M.Sc</option>
+                <option value="S.S.C">S.S.C</option>
+              </select>
+            </div>
+        </div>
+
+
+        <!-- 5. institution -->
+        <div class="form-outline mb-4">
+            <label class="form-label" for="institution">10. Institution</label>
+            <input type="text" id="institution" name="institution" class="form-control" value="<%= selected_student.institution %>" required/>
+        </div>
+
+
+        <!-- 6. Address -->
+        <div class="form-outline mb-4">
+            <label class="form-label" for="address">11. Address</label>
+            <input type="text" id="address" name="address" class="form-control" value="<%= selected_student.address %>" required/>
+        </div>
+
+
+        <!-- 7. password and active permission -->
+        <div class="row">
+            <div class="col-md-8 mb-4">
+                <div class="form-outline">
+                    <label class="form-label" for="password">12. Password</label>
+                    <input type="password" id="password" class="form-control" name="password" value=""/>
+                </div>
+            </div>
+            <div class="form-group col-md-4 mb-4">
+                <label for="permission" class="form-label">13. Permission Status</label>
+                <select id="permission" name="permission" class="form-control" required>
+                  <option value="<%= selected_student.permission %>"><%= selected_student.permission %></option>
+                  <option value="Approve">Approve</option>
+                  <option value="Decline">Decline</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- 8.Registration Date Time -->
+        <div class="form-outline mb-4">
+            <label class="form-label" for="reg_DateTime">14. Registration Date Time</label>
+            <input type="text" id="reg_DateTime" name="reg_DateTime" class="form-control" value="<%= selected_student.reg_DateTime %>" readonly/>
+        </div>
+      
+      <button type="submit" class="btn btn-primary">UPDATE</button>
+    </form>
+  </div>
+</div>
+
+</body>
+</html>
