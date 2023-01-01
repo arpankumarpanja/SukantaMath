@@ -20,7 +20,7 @@ module.exports.admin_panel_get=(req, res) => {
 
 // go to admin login form page
 module.exports.admin_login_get=(req, res) => {
-    res.render('admin_Login');    
+    res.render('admin_login');    
 }
 
 
