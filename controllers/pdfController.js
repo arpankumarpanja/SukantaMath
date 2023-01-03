@@ -106,3 +106,14 @@ module.exports.deletePdfById_get=(req, res) => {
         console.log("deleted successfully : "+Selected_pdfId);
     });
 }
+
+
+
+
+// performing rendering google drive pdf to iframe
+module.exports.viewPdfByLink_post=(req, res) => {
+    const pdf_link = req.body.pdf_link;
+    res.render('pdf_viewer', {
+        pdf_url:pdf_link
+    });
+}

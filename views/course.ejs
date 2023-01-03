@@ -163,6 +163,17 @@ height: 200px;
 <!-- Background image -->
 
 
+
+
+
+
+
+
+
+
+
+
+
 <!-- start Section: Design Block for syllabus -->
 <section class="text-center">
   <div class="card mx-4 mx-md-5 shadow-5-strong" style="background: hsla(0, 0%, 100%, 0.8); backdrop-filter: blur(30px); ">
@@ -187,16 +198,22 @@ height: 200px;
                   <!-- pdf rendering for syllabus -->
                   <% pdfs1.forEach(function(pdf){ %>
                     <div class="row mb-2" style="text-align: center; border-bottom: 1px solid rgb(181, 180, 180);">
+                      <!-- for pdf id -->
                       <div class="form-group col-md-2 mb-0 flex bg-gray-300">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="green" class="w-6 h-6">
                           <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg> <pre>  # <%= pdf.pdf_id %></pre>                    
                       </div>
+
+                      <!-- for pdf url / link -->
                       <div class="form-group col-md-7 mb-0 bg-blue-300">
-                        <a href="<%= pdf.pdf_link %>" target="_blank" class="text-blue-800">
-                          <%= pdf.pdf_name %>
-                        </a>
+                        <!-- <a href="<%= pdf.pdf_link %>" target="_blank" class="text-blue-800" hidden><%= pdf.pdf_name %></a> -->
+                        <form action="/ViewPdf" method="post">
+                          <input type="text" class="form-control" id="pdf_link" name="pdf_link" value="<%= pdf.pdf_link %>" required readonly hidden/>
+                          <button type="submit"><%= pdf.pdf_name %></button>
+                        </form>
                       </div>
+                      <!-- for uploaded date and time -->
                       <div class="form-group col-md-3 mb-0 bg-yellow-300">
                         <%= pdf.DateTime %>
                       </div>
@@ -210,6 +227,9 @@ height: 200px;
 <!-- end Section: Design Block for syllabus -->
 
 <div style="border-bottom: 1px solid black;"></div>
+
+
+
 
 
 <!-- start Section: Design Block for IMPORTANT NOTES -->
@@ -241,11 +261,15 @@ height: 200px;
                           <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg> <pre>  # <%= pdf.pdf_id %></pre>                    
                       </div>
+
                       <div class="form-group col-md-7 mb-0 bg-blue-300">
-                        <a href="<%= pdf.pdf_link %>" target="_blank" class="text-blue-800">
-                          <%= pdf.pdf_name %>
-                        </a>
+                        <!-- <a href="<%= pdf.pdf_link %>" target="_blank" class="text-blue-800"><%= pdf.pdf_name %></a> -->
+                        <form action="/ViewPdf" method="post">
+                          <input type="text" class="form-control" id="pdf_link" name="pdf_link" value="<%= pdf.pdf_link %>" required readonly hidden/>
+                          <button type="submit"><%= pdf.pdf_name %></button>
+                        </form>
                       </div>
+
                       <div class="form-group col-md-3 mb-0 bg-yellow-300">
                         <%= pdf.DateTime %>
                       </div>
@@ -291,11 +315,15 @@ height: 200px;
                           <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg> <pre>  # <%= pdf.pdf_id %></pre>                    
                       </div>
+
                       <div class="form-group col-md-7 mb-0 bg-blue-300">
-                        <a href="<%= pdf.pdf_link %>" target="_blank" class="text-blue-800">
-                          <%= pdf.pdf_name %>
-                        </a>
+                        <!-- <a href="<%= pdf.pdf_link %>" target="_blank" class="text-blue-800"><%= pdf.pdf_name %></a> -->
+                        <form action="/ViewPdf" method="post">
+                          <input type="text" class="form-control" id="pdf_link" name="pdf_link" value="<%= pdf.pdf_link %>" required readonly hidden/>
+                          <button type="submit"><%= pdf.pdf_name %></button>
+                        </form>
                       </div>
+
                       <div class="form-group col-md-3 mb-0 bg-yellow-300">
                         <%= pdf.DateTime %>
                       </div>
@@ -341,11 +369,15 @@ height: 200px;
                           <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg> <pre>  # <%= pdf.pdf_id %></pre>                    
                       </div>
+
                       <div class="form-group col-md-7 mb-0 bg-blue-300">
-                        <a href="<%= pdf.pdf_link %>" target="_blank" class="text-blue-800">
-                          <%= pdf.pdf_name %>
-                        </a>
+                        <!-- <a href="<%= pdf.pdf_link %>" target="_blank" class="text-blue-800"><%= pdf.pdf_name %></a> -->
+                        <form action="/ViewPdf" method="post">
+                          <input type="text" class="form-control" id="pdf_link" name="pdf_link" value="<%= pdf.pdf_link %>" required readonly hidden/>
+                          <button type="submit"><%= pdf.pdf_name %></button>
+                        </form>
                       </div>
+
                       <div class="form-group col-md-3 mb-0 bg-yellow-300">
                         <%= pdf.DateTime %>
                       </div>
@@ -359,6 +391,17 @@ height: 200px;
 <!-- end Section: Design Block for PREVIOUS YEAR QUEASTION PAPER -->
 
 <div style="border-bottom: 1px solid black;"></div>
+
+
+
+
+
+
+
+
+
+
+
 
 
 
