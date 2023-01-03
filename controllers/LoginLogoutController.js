@@ -9,7 +9,7 @@ const jwt = require('jsonwebtoken');
 
 
 // create json web token
-const maxAge = 2 * 60 * 60;    //(2 hours set for now) for 3 days 3 * 24 * 60 * 60, for 5 minute 5*60  
+const maxAge = 5 * 60 * 60;    //(5 hours set for now) for 3 days 3 * 24 * 60 * 60, for 5 minute 5*60  
 const createToken = (id) => {
   return jwt.sign({ id }, 'user secret code - chatra', {
     expiresIn: maxAge

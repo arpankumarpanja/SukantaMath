@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 // create json web token for admin
-const maxAge = 30 * 60;    //(30 minutes set for now) for 3 days 3 * 24 * 60 * 60, for 5 minute 5*60  
+const maxAge = 60 * 60;    //(60 minutes/1 hour set for now) for 3 days 3 * 24 * 60 * 60, for 5 minute 5*60  
 const createAdminToken = (id) => {
   return jwt.sign({ id }, 'admin secret code - shikshak', {
     expiresIn: maxAge
