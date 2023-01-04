@@ -90,7 +90,7 @@ module.exports.login_post=async (req, res) => {
                     // create token and generate cookie if logged in successfully
                     const token = createToken(results1[0].student_id);
                     res.cookie('student_jwt', token, { httpOnly: true, maxAge: maxAge * 1000 });
-                    console.log("created token: "+token);
+                    console.log("created student_token: "+token);
                     res.redirect('/');
                     // res.send(results1[0].email+" loggged in successfully.");
                 }

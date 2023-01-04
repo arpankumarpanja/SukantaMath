@@ -39,7 +39,7 @@ module.exports.admin_login_post=async (req, res) => {
                     // create token and generate cookie if logged in successfully
                     const token = createAdminToken(results1[0].admin_id);
                     res.cookie('admin_jwt', token, { httpOnly: true, maxAge: maxAge * 1000 });
-                    console.log("created token: "+token);
+                    console.log("created admin_token: "+token);
                     console.log(results1[0].user_name+" loggged in successfully.");
                     res.redirect('/adminPannel');
                 }
