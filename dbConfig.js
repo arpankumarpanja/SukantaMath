@@ -19,7 +19,7 @@ const connection=mysql.createConnection({
 });
 try {
     connection.connect(function (error) {
-        if (!!error) throw error;
+        if (!!error) console.log(error);
         else console.log('Database Connected!');
     }); 
 } catch (error) {
