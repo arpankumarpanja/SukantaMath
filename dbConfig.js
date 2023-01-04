@@ -23,7 +23,7 @@ try {
         else console.log('Database Connected!');
     }); 
 } catch (error) {
-    console.log(error);
+    console.log("database error: ",error);
 }
 
 
