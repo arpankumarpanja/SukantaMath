@@ -17,11 +17,15 @@ const connection=mysql.createConnection({
     password:'mS5PZ1zzcN',
     database:'sql6587558'
 });
+try {
+    connection.connect(function (error) {
+        if (!!error) throw error;
+        else console.log('Database Connected!');
+    }); 
+} catch (error) {
+    console.log(error);
+}
 
-connection.connect(function (error) {
-    if (!!error) console.log(error);
-    else console.log('Database Connected!');
-}); 
 
 
 // module.exports = connection;
