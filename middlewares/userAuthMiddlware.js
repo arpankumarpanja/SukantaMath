@@ -86,7 +86,7 @@ const checkUser = (req, res, next) => {
                 if(err) throw err;
                 else{
                     res.locals.user = result.first_name;
-                    console.log("First Name: "+result[0].first_name);
+                    // console.log("First Name: "+result[0].first_name);
                     res.locals.student_user = result[0];
                     next();
                 }
