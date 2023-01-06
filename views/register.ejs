@@ -62,7 +62,7 @@
                                 </div>
                                 <div class="col-md-6 mb-4">
                                     <div class="form-outline">
-                                        <input type="number" id="ph_no" class="form-control" name="ph_no" required />
+                                        <input type="number" min="1000000000" max="9999999999" id="ph_no" class="form-control" name="ph_no" required />
                                         <label class="form-label" for="ph_no">4. Phone No</label>
                                     </div>
                                 </div>
@@ -80,7 +80,7 @@
                                 </div>
                                 <div class="col-md-6 mb-4">
                                     <div class="form-outline">
-                                        <input type="number" id="gurdian_ph" class="form-control" name="gurdian_ph" required />
+                                        <input type="number" min="1000000000" max="9999999999" id="gurdian_ph" class="form-control" name="gurdian_ph" required />
                                         <label class="form-label" for="gurdian_ph">6. Gurdian Contact No</label>
                                     </div>
                                 </div>
@@ -88,9 +88,9 @@
 
 
 
-                            <!-- 4. gender / education_level / course_section -->
+                            <!-- 4. gender / date_of_birth / education_level / course_section -->
                             <div class="row" style="text-align: left;">
-                                <div class="form-group col-md-4 mb-4">
+                                <div class="form-group col-md-3 mb-4">
                                     <label for="gender" class="form-label mb-1">7. Gender</label>
                                     <select id="gender" name="gender" class="form-control" required>
                                       <option value="Male">Male</option>
@@ -98,8 +98,12 @@
                                       <option value="Others">Others</option>
                                     </select>
                                 </div>
-                                <div class="form-group col-md-4 mb-4">
-                                  <label for="education_level" class="mb-1 form-label">8. Education Level</label>
+                                <div class="form-group col-md-3 mb-4">
+                                    <label for="date_of_birth" class="form-label mb-1">8. Date of Birth</label>
+                                    <input type="date" id="date_of_birth" class="form-control" name="date_of_birth" required />
+                                </div>
+                                <div class="form-group col-md-3 mb-4">
+                                  <label for="education_level" class="mb-1 form-label">9. Education Level</label>
                                   <select id="education_level" name="education_level" class="form-control addCourse" required>
                                     <option value="School">School</option>
                                     <option value="B.Sc Honours">B.Sc Honours</option>
@@ -108,8 +112,8 @@
                                     <option value="Entrance">Entrance Exam</option>
                                   </select>
                                 </div>
-                                <div class="form-group col-md-4 mb-4">
-                                  <label for="course_section" class="mb-1">9. Course Section</label>
+                                <div class="form-group col-md-3 mb-4">
+                                  <label for="course_section" class="mb-1">10. Course Section</label>
                                   <select id="course_section" name="course_section" class="form-control addCategory" required>
                                     <option value="Class XI">Class XI</option>
                                     <option value="Class XII">Class XII</option>
@@ -131,19 +135,20 @@
                             <!-- 5. institution -->
                             <div class="form-outline mb-4">
                                 <input type="text" id="institution" name="institution" class="form-control" required/>
-                                <label class="form-label" for="institution">10. Institution</label>
+                                <label class="form-label" for="institution">11. Institution</label>
                             </div>
 
                             <!-- 6. Address -->
                             <div class="form-outline mb-4">
                                 <input type="text" id="address" name="address" class="form-control" required/>
-                                <label class="form-label" for="address">11. Address</label>
+                                <label class="form-label" for="address">12. Address</label>
                             </div>
 
                             <!-- Password input -->
-                            <div class="form-outline mb-4">
-                                <input type="password" id="password" class="form-control" name="password" required/>
-                                <label class="form-label" for="password">12. Password</label>
+                            <div class="form-group mb-4" style="text-align: left;">
+                                <label class="form-label" for="password">13. Password</label>
+                                <input type="password" id="password" class="form-control" name="password" 
+                                placeholder="Enter a Valid Email Id, You Will Receive Your Password on Your Email" readonly disabled/>
                             </div>
 
                             <!-- Submit button -->

@@ -2,7 +2,8 @@ const mysql = require('mysql');
 
 
 // database connection
-// const connection=mysql.createConnection({
+// const connectionPool=mysql.createPool({
+//     connectionLimit : 20,
 //     host:'localhost',
 //     user:'root',
 //     password:'root',
@@ -28,8 +29,9 @@ try {
 */
 
 
+// actual online database
 const connectionPool=mysql.createPool({
-    connectionLimit : 10,
+    connectionLimit : 100,
     host:'sql6.freesqldatabase.com',
     user:'sql6587558',
     password:'mS5PZ1zzcN',

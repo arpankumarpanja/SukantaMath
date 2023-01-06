@@ -81,3 +81,36 @@ module.exports.deleteStudentById_get=(req, res) => {
         console.log("deleted successfully : "+Selected_studentId);
     });
 }
+
+
+
+
+//---------------------------------------- different section for users ----------------------------------------------------
+// direct to student profile page to see an existing student details through the student_id by post method (req.body._)
+module.exports.viewStudentProfile_post=(req, res) => {
+    const Selected_studentId = req.body.student_id;
+    let sql = `Select * from studentTable where student_id = ${Selected_studentId}`;
+    let query = connection.query(sql,(err, result) => {
+        if(err) throw err;
+        res.render('student_profile', {
+            title : 'YOUR PROFILE',
+            selected_student : result[0]
+        });
+    });
+}
+
+
+
+// perfoming update operation to update an existing student details/record in database through the student_id
+module.exports.UpdateStudentProfile_post= async(req, res) => {
+    const student_id = req.body.student_id;
+    //hashing password
+    const salt = await bcrypt.genSalt();
+    const hashed_password = await bcrypt.hash(req.body.password, salt);
+    update_password_sql = "update studentTable SET password='" + hashed_password + "' where student_id =" + student_id;
+    // res.send(req.body.password+" : "+sql);
+    let query = connection.query(update_password_sql,(err, results) => {
+      if(err) throw err;
+      res.redirect('/logout');
+    });
+}

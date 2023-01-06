@@ -102,7 +102,11 @@
         
         <% if (student_user) { %>
           <li class="mx-0 my-0 px-4 py-2 md:my-0 rounded bg-gray-800 text-yellow-500 hover:bg-gray-700 hover:text-yellow-400">
-            <a href="#" class="text-x0 duration-500">Welcome, <%= student_user %></a>
+            <!-- <a href="#" class="text-x0 duration-500">Welcome, <%= student_user.first_name %></a> -->
+            <form action="/ViewStudentProfile" method="post">
+              <input type="text" class="form-control" id="student_id" name="student_id" value="<%= student_user.student_id %>" required readonly hidden/>
+              <button type="submit">Welcome, <%= student_user.first_name %></button>
+            </form>
           </li>
           <li class="mx-0 my-0 px-4 py-2 md:my-0 bg-red-400 rounded-full hover:bg-red-600 hover:text-white">
             <a href="logout" class="text-x0 duration-500">Logout</a>

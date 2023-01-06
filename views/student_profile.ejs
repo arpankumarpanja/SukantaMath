@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title><%= title %></title>
+  <title>YOUR PROFILE</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -9,15 +9,16 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
-<body>
+<body <% if (selected_student.permission==="Decline") { %>style="background-color: #E74C3C;" <% } %>>
 
 <div class="container card mt-4 mb-5">
   <h2 class="card-header text-center bg-gray-900" style="background-color: lightseagreen; color: white;"><%= title %></h2>
+  <h5 class="text-center" style="color: red;">* YOU CAN UPDATE YOUR PASSWORD ONLY, FOR OTHER CHANGES ASK YOUR TEACHER *</h5>
   <div class="card-body">
-    <form action="/UpdateStudent" method="post">
+    <form action="/UpdateStudentProfile" method="post">
         <!-- ---------- student id----------- -->
         <div class="form-group">
-            <label for="student_id">PDF ID</label>
+            <label for="student_id">STUDENT ID</label>
             <input type="text" class="form-control" id="student_id" name="student_id" placeholder="Enter Student ID" value="<%= selected_student.student_id %>" required readonly/>
           </div>
 
@@ -27,13 +28,13 @@
             <div class="col-md-6 mb-4">
                 <div class="form-outline">
                     <label class="form-label" for="first_name">1. First name</label>
-                    <input type="text" id="first_name" class="form-control" name="first_name" value="<%= selected_student.first_name %>"  required />
+                    <input type="text" id="first_name" class="form-control" name="first_name" value="<%= selected_student.first_name %>"  required readonly disabled/>
                 </div>
             </div>
             <div class="col-md-6 mb-4">
                 <div class="form-outline">
                     <label class="form-label" for="last_name">2. Last Name</label>
-                    <input type="text" id="last_name" class="form-control" name="last_name" value="<%= selected_student.last_name %>" required />
+                    <input type="text" id="last_name" class="form-control" name="last_name" value="<%= selected_student.last_name %>" required readonly disabled/>
                 </div>
             </div>
         </div>
@@ -44,13 +45,13 @@
             <div class="col-md-6 mb-4">
                 <div class="form-outline">
                     <label class="form-label" for="email">3. Email ID</label>
-                    <input type="email" id="email" class="form-control" name="email" value="<%= selected_student.email %>" required />
+                    <input type="email" id="email" class="form-control" name="email" value="<%= selected_student.email %>" required readonly disabled/>
                 </div>
             </div>
             <div class="col-md-6 mb-4">
                 <div class="form-outline">
                     <label class="form-label" for="ph_no">4. Phone No</label>
-                    <input type="number" id="ph_no" class="form-control" name="ph_no" value="<%= selected_student.ph_no %>" required />
+                    <input type="number" id="ph_no" class="form-control" name="ph_no" value="<%= selected_student.ph_no %>" required readonly disabled/>
                 </div>
             </div>
         </div>
@@ -61,13 +62,13 @@
             <div class="col-md-6 mb-4">
                 <div class="form-outline">
                     <label class="form-label" for="gurdian_name">5. Gurdian Name</label>
-                    <input type="text" id="gurdian_name" class="form-control" name="gurdian_name" value="<%= selected_student.gurdian_name %>" required />
+                    <input type="text" id="gurdian_name" class="form-control" name="gurdian_name" value="<%= selected_student.gurdian_name %>" required readonly disabled/>
                 </div>
             </div>
             <div class="col-md-6 mb-4">
                 <div class="form-outline">
                     <label class="form-label" for="gurdian_ph">6. Gurdian Contact No</label>
-                    <input type="number" id="gurdian_ph" class="form-control" name="gurdian_ph" value="<%= selected_student.gurdian_ph %>" required />
+                    <input type="number" id="gurdian_ph" class="form-control" name="gurdian_ph" value="<%= selected_student.gurdian_ph %>" required readonly disabled/>
                 </div>
             </div>
         </div>
@@ -77,7 +78,7 @@
         <div class="row" style="text-align: left;">
             <div class="form-group col-md-3 mb-4">
                 <label for="gender" class="form-label">7. Gender</label>
-                <select id="gender" name="gender" class="form-control" required>
+                <select id="gender" name="gender" class="form-control" required readonly disabled>
                   <option value="<%= selected_student.gender %>"><%= selected_student.gender %></option>
                   <option value="Male">Male</option>
                   <option value="Female">Female</option>
@@ -86,11 +87,11 @@
             </div>
             <div class="form-group col-md-3 mb-4">
                 <label for="date_of_birth" class="form-label mb-1">8. Date of Birth</label>
-                <input type="date" id="date_of_birth" class="form-control" name="date_of_birth" value="<%= selected_student.date_of_birth %>" required />
+                <input type="date" id="date_of_birth" class="form-control" name="date_of_birth" value="<%= selected_student.date_of_birth %>" required readonly disabled/>
             </div>
             <div class="form-group col-md-3 mb-4">
               <label for="education_level" class="form-label">9. Education Level</label>
-              <select id="education_level" name="education_level" class="form-control addCourse" required>
+              <select id="education_level" name="education_level" class="form-control addCourse" required readonly disabled>
                 <option value="<%= selected_student.education_level %>"><%= selected_student.education_level %></option>
                 <option value="School">School</option>
                 <option value="B.Sc Honours">B.Sc Honours</option>
@@ -101,7 +102,7 @@
             </div>
             <div class="form-group col-md-3 mb-4">
               <label for="course_section" class="form-label">10. Course Section</label>
-              <select id="course_section" name="course_section" class="form-control addCategory" required>
+              <select id="course_section" name="course_section" class="form-control addCategory" required readonly disabled>
                 <option value="<%= selected_student.course_section %>"><%= selected_student.course_section %></option>
                 <option value="Class XI">Class XI</option>
                 <option value="Class XII">Class XII</option>
@@ -122,14 +123,14 @@
         <!-- 5. institution -->
         <div class="form-outline mb-4">
             <label class="form-label" for="institution">11. Institution</label>
-            <input type="text" id="institution" name="institution" class="form-control" value="<%= selected_student.institution %>" required/>
+            <input type="text" id="institution" name="institution" class="form-control" value="<%= selected_student.institution %>" required readonly disabled/>
         </div>
 
 
         <!-- 6. Address -->
         <div class="form-outline mb-4">
             <label class="form-label" for="address">12. Address</label>
-            <input type="text" id="address" name="address" class="form-control" value="<%= selected_student.address %>" required/>
+            <input type="text" id="address" name="address" class="form-control" value="<%= selected_student.address %>" required readonly disabled/>
         </div>
 
 
@@ -137,13 +138,13 @@
         <div class="row">
             <div class="col-md-8 mb-4">
                 <div class="form-outline">
-                    <label class="form-label" for="password">13. Password</label>
-                    <input type="password" id="password" class="form-control" placeholder="If You Want to Change Password Then Enter New Password" name="password" value=""/>
+                    <label class="form-label" for="password">13.Change Password</label>
+                    <input type="password" id="password" class="form-control" placeholder="If You Want to Change Password Then Enter New Password" name="password" required/>
                 </div>
             </div>
             <div class="form-group col-md-4 mb-4">
                 <label for="permission" class="form-label">14. Permission Status</label>
-                <select id="permission" name="permission" class="form-control" required>
+                <select id="permission" name="permission" class="form-control" required readonly disabled>
                   <option value="<%= selected_student.permission %>"><%= selected_student.permission %></option>
                   <option value="Approve">Approve</option>
                   <option value="Decline">Decline</option>
@@ -154,7 +155,7 @@
         <!-- 8.Registration Date Time -->
         <div class="form-outline mb-4">
             <label class="form-label" for="reg_DateTime">15. Registration Date Time</label>
-            <input type="text" id="reg_DateTime" name="reg_DateTime" class="form-control" value="<%= selected_student.reg_DateTime %>" readonly/>
+            <input type="text" id="reg_DateTime" name="reg_DateTime" class="form-control" value="<%= selected_student.reg_DateTime %>" readonly disabled/>
         </div>
       
       <button type="submit" class="btn btn-primary">UPDATE</button>

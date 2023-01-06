@@ -25,6 +25,13 @@ studentRouter.get('/login',student_controller.login_get);
 studentRouter.post('/loginPost',student_controller.login_post);
 
 
+// going to forgot password page
+studentRouter.get('/ForgotPasswordGet',student_controller.forgotPassword_get);
+
+// checking email and date of birth from database already registered to reset password
+studentRouter.post('/ForgotPasswordPost',student_controller.ForgotPasswordPost);
+
+
 studentRouter.get('/logout',student_controller.logout_get);
 
 

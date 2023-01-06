@@ -6,6 +6,7 @@ const Router = express();
 
 const pdf_controller = require('../controllers/pdfController');
 const adminAuthMiddlware = require('../middlewares/adminAuthMiddlware');
+const requireUserAuth = require('../middlewares/userAuthMiddlware');
 
 
 
@@ -47,7 +48,7 @@ Router.get('/DeletePdf/:pdfId', adminAuthMiddlware.requireAdminAuth, pdf_control
 
 
 // performing rendering google drive pdf to iframe to hide the google drive link
-Router.post('/ViewPdf', pdf_controller.viewPdfByLink_post);
+Router.post('/ViewPdf', requireUserAuth.requireAuth, pdf_controller.viewPdfByLink_post);
 
 
 module.exports = Router;
