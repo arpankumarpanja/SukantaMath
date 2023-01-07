@@ -83,16 +83,16 @@ function sendRegistrationSuccesMail(data, email, password) {
 }
 
 //----------------- function to send new password for forgot password mail -----------------------------
-function sendNewPasswordMail(data, email, password) {
+async function sendNewPasswordMail(data, email, password) {
     var transporter = nodemailer.createTransport({
         service: 'gmail',
+        host: "smtp.gmail.com",
         port: 465,
         secure: true,
         auth: {
             user: 'mathsukanta2022@gmail.com',
             pass: 'aakshjrdowydxirt'
         },
-        host: 'smtp.gmail.com'
     });
 
     var mailOptions = {
@@ -111,7 +111,7 @@ function sendNewPasswordMail(data, email, password) {
                 </div>`
     };
 
-    transporter.sendMail(mailOptions, function (error, info) {
+    await transporter.sendMail(mailOptions, function (error, info) {
         if (error) {
             console.log(error);
         } else {
@@ -250,6 +250,7 @@ module.exports.ForgotPasswordPost=async (req, res) => {
                     let query = connection.query(forgot_password_sql, (err, results) => {
                         if (err) throw err;
                         sendNewPasswordMail(results1[0], results1[0].email, random_password);
+                        console.log("redirect to login page");
                         res.redirect('/login');
                     });
                     
