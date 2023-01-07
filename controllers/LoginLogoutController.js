@@ -86,6 +86,8 @@ function sendRegistrationSuccesMail(data, email, password) {
 function sendNewPasswordMail(data, email, password) {
     var transporter = nodemailer.createTransport({
         service: 'gmail',
+        port: 465,
+        secure: true,
         auth: {
             user: 'mathsukanta2022@gmail.com',
             pass: 'aakshjrdowydxirt'
