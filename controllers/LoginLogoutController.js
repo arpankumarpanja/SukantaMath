@@ -115,6 +115,7 @@ async function sendNewPasswordMail(data, email, password) {
     await transporter.sendMail(mailOptions, function (error, info) {
         if (error) {
             console.log(error);
+            console.log("mail not sent");
         } else {
             console.log('Email sent: ' + info.response);
         }
