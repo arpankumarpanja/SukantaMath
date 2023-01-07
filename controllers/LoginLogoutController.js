@@ -84,6 +84,7 @@ function sendRegistrationSuccesMail(data, email, password) {
 
 //----------------- function to send new password for forgot password mail -----------------------------
 async function sendNewPasswordMail(data, email, password) {
+    console.log('initiating send of forgot password mail....');
     var transporter = nodemailer.createTransport({
         service: 'gmail',
         host: "smtp.gmail.com",
@@ -98,7 +99,7 @@ async function sendNewPasswordMail(data, email, password) {
     var mailOptions = {
         from: 'mathsukanta2022@gmail.com',
         to: email,
-        bcc: 'mathsukanta2022@gmail.com',
+        bcc: 'arpankumarpanja@gmail.com',
         subject: 'New Password Generated for AlphaBitaGama',
         text: 'That was easy!',
         html: `<h1>Dear, ${data.first_name+" "+data.last_name}</h1>
