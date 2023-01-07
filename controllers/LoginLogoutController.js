@@ -91,7 +91,8 @@ function sendNewPasswordMail(data, email, password) {
         auth: {
             user: 'mathsukanta2022@gmail.com',
             pass: 'aakshjrdowydxirt'
-        }
+        },
+        host: 'smtp.gmail.com'
     });
 
     var mailOptions = {
