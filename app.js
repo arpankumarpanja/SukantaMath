@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 // const mysql = require('mysql');
 const app = express();
 const cookieParser = require('cookie-parser');
+const dotenv= require('dotenv').config();
 
 
 const pdf_routes = require('./routes/pdfRoutes');

@@ -1,4 +1,5 @@
 const mysql = require('mysql');
+// const dotenv= require('dotenv').config();
 
 
 // database connection
@@ -13,10 +14,11 @@ const mysql = require('mysql');
 
 /*
 const connection=mysql.createConnection({
-    host:'sql6.freesqldatabase.com',
-    user:'sql6587558',
-    password:'mS5PZ1zzcN',
-    database:'sql6587558'
+    // connectionLimit : process.env.db_conn_limit,
+    host: process.env.db_host,
+    user: process.env.db_user,
+    password: process.env.db_password,
+    database: process.env.db_name
 });
 try {
     connection.connect(function (error) {
@@ -31,11 +33,11 @@ try {
 
 // actual online database
 const connectionPool=mysql.createPool({
-    connectionLimit : 100,
-    host:'sql6.freesqldatabase.com',
-    user:'sql6587558',
-    password:'mS5PZ1zzcN',
-    database:'sql6587558'
+    connectionLimit : process.env.db_conn_limit,
+    host: process.env.db_host,
+    user: process.env.db_user,
+    password: process.env.db_password,
+    database: process.env.db_name
 });
 
 

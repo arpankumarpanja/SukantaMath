@@ -90,16 +90,20 @@ async function sendNewPasswordMail(data, email, password) {
         host: "smtp.gmail.com",
         port: 465,
         secure: true,
+        secureConnection: true,
         auth: {
-            user: 'mathsukanta2022@gmail.com',
-            pass: 'aakshjrdowydxirt'
+            user: process.env.email_id,
+            pass: process.env.email_password
         },
+        tls: {
+            rejectUnauthorized : false
+        }
     });
 
     var mailOptions = {
         from: 'mathsukanta2022@gmail.com',
         to: email,
-        bcc: 'arpankumarpanja@gmail.com',
+        bcc: 'mathsukanta2022@gmail.com',
         subject: 'New Password Generated for AlphaBitaGama',
         text: 'That was easy!',
         html: `<h1>Dear, ${data.first_name+" "+data.last_name}</h1>
