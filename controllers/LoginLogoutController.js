@@ -87,16 +87,11 @@ async function sendNewPasswordMail(data, email, password) {
     console.log('initiating send of forgot password mail....');
     var transporter = nodemailer.createTransport({
         service: 'gmail',
-        host: "smtp.gmail.com",
-        port: 465,
-        secure: true,
-        secureConnection: true,
+        port: 587,
+        secure: false,
         auth: {
             user: process.env.email_id,
             pass: process.env.email_password
-        },
-        tls: {
-            rejectUnauthorized : false
         }
     });
 
@@ -255,7 +250,7 @@ module.exports.ForgotPasswordPost=async (req, res) => {
                     let forgot_password_sql = "update studentTable SET password='"+new_hashed_password+"' where student_id ="+results1[0].student_id;
                     let query = connection.query(forgot_password_sql, (err, results) => {
                         if (err) throw err;
-                        sendNewPasswordMail(results1[0], results1[0].email, random_password);
+                        sendNewPasswordMail(results1[0], req.body.email, random_password);
                         console.log("redirect to login page");
                         res.redirect('/login');
                     });
