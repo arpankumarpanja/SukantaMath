@@ -38,9 +38,6 @@ Port number: 3306
 freesqldatabase.com password: passworD@9876543210
 email: mathsukanta2022@gmail.com
 
-sendgrid.com password : passworD@9876543210
-email : mathsukanta2022@gmail.com
-api: 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
 
 
 CREATE TABLE `studentTable` (
