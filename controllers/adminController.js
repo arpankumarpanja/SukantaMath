@@ -6,7 +6,7 @@ const jwt = require('jsonwebtoken');
 // create json web token for admin
 const maxAge = 60 * 60;    //(60 minutes/1 hour set for now) for 3 days 3 * 24 * 60 * 60, for 5 minute 5*60  
 const createAdminToken = (id) => {
-  return jwt.sign({ id }, 'admin secret code - shikshak', {
+  return jwt.sign({ id }, process.env.admin_token_secret, {
     expiresIn: maxAge
   });
 };

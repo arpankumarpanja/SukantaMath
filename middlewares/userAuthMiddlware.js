@@ -8,7 +8,7 @@ const requireAuth = (req, res, next) => {
 
     // check json web token exists & is verified
     if (token) {
-        jwt.verify(token, 'user secret code - chatra', (err, decodedToken) => {
+        jwt.verify(token, process.env.student_token_secret, (err, decodedToken) => {
             if (err) {
                 console.log(err.message);
                 res.redirect('/login');
@@ -31,10 +31,13 @@ const requireAdminPermission = (req, res, next) => {
   let Education_Level=req.params.EducationLevel;
   let course_section=req.params.courseSection;
   if (token) {
-    jwt.verify(token, 'user secret code - chatra', async (err, decodedToken) => {
+    jwt.verify(token, process.env.student_token_secret, async (err, decodedToken) => {
       if (err) {
         console.log("requireAdminPermission Error: "+err);
-        res.redirect('/');
+        // res.redirect('/');
+        res.render('Home',{
+          home_mssg:""
+        })
       } else {
           console.log("decodedToken: "+decodedToken.id);
           let permission_sql="SELECT * FROM studentTable WHERE student_id = "+decodedToken.id+"";
@@ -50,11 +53,17 @@ const requireAdminPermission = (req, res, next) => {
                       next();
                     }
                     else{
-                      res.send(result[0].first_name+" "+result[0].last_name+" is NOT a student of "+Education_Level+"->"+course_section);
+                      // res.send(result[0].first_name+" "+result[0].last_name+" is NOT a student of "+Education_Level+"->"+course_section);
+                      res.render('Home', {
+                        home_mssg: result[0].first_name+" "+result[0].last_name+", you are not a student of "+Education_Level+"->"+course_section
+                      });
                     }
                   }
                 else{
-                  res.send("Permission status: "+result[0].permission+"\nAsk your Teacher to get permission........");
+                  // res.send("Permission status: "+result[0].permission+"\nAsk your Teacher to get permission........");
+                  res.render('Home', {
+                    home_mssg : "Permission status: "+result[0].permission+", Ask your Teacher to get permission........"
+                  });
                 }
               }
             });
@@ -75,7 +84,7 @@ const requireAdminPermission = (req, res, next) => {
 const checkUser = (req, res, next) => {
     const token = req.cookies.student_jwt;
     if (token) {
-      jwt.verify(token, 'user secret code - chatra', async (err, decodedToken) => {
+      jwt.verify(token, process.env.student_token_secret, async (err, decodedToken) => {
         if (err) {
           res.locals.student_user = null;
           next();

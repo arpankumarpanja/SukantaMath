@@ -47,7 +47,9 @@ const connection=require('./dbConfig');
 app.get('*', checkUser);
 // Default load page home
 app.get('/',(req, res) => {
-    res.render('Home');    
+    res.render('Home',{
+        home_mssg: ""
+    });    
 });
 
 

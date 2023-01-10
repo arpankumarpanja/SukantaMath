@@ -11,7 +11,7 @@ var nodemailer = require('nodemailer');
 // create json web token
 const maxAge = 5 * 60 * 60;    //(5 hours set for now) for 3 days 3 * 24 * 60 * 60, for 5 minute 5*60  
 const createToken = (id) => {
-  return jwt.sign({ id }, 'user secret code - chatra', {
+  return jwt.sign({ id }, process.env.student_token_secret, {
     expiresIn: maxAge
   });
 };
@@ -42,8 +42,8 @@ function sendRegistrationSuccesMail(data, email, password) {
     var transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
-            user: 'mathsukanta2022@gmail.com',
-            pass: 'aakshjrdowydxirt'
+            user: process.env.email_id,
+            pass: process.env.email_password
         }
     });
 
@@ -126,12 +126,16 @@ async function sendNewPasswordMail(data, email, password) {
 
 // go to register form page
 module.exports.register_get=(req, res) => {
-    res.render('register');
+    res.render('register',{
+        reg_mssg: "reg"
+    });
 }
 
 // go to login form page
 module.exports.login_get=(req, res) => {
-    res.render('login');    
+    res.render('login',{
+        login_mssg: ""
+    });    
 }
 
 
@@ -143,7 +147,10 @@ module.exports.register_post=async (req, res) => {
         else{
             if(results1.length>0){
                 console.log(results1[0].email+" already registerd.");
-                res.send(results1[0].email+" already registerd.");
+                // res.send(results1[0].email+" already registerd.");
+                res.render('register',{
+                    reg_mssg: results1[0].email+" already registerd."
+                }); 
             }
             else {
                 // var dt = dateTime.create();
@@ -180,7 +187,10 @@ module.exports.register_post=async (req, res) => {
                     console.log(req.body.email+" registerd successfully.");
                     // res.send(req.body.email+" Registtered successfully.");
                     sendRegistrationSuccesMail(data,data.email,random_password);
-                    res.redirect('/login');
+                    // res.redirect('/login');
+                    res.render('login',{
+                        login_mssg: "Your Email: "+data.email+"\n Your Password: "+random_password
+                    });
                 });
                 console.log(data);
             }
@@ -210,12 +220,18 @@ module.exports.login_post=async (req, res) => {
                 }
                 else{
                     console.log(results1[0].email+" Wrong Password.");
-                    res.send(results1[0].email+" Wrong Password.");
+                    // res.send(results1[0].email+" Wrong Password.");
+                    res.render('login',{
+                        login_mssg: results1[0].email+" Wrong Password."
+                    });
                 }
             }
             else{
                 console.log(req.body.email+" Not Registered.");
-                res.send(req.body.email+" Not Registered.");
+                // res.send(req.body.email+" Not Registered.");
+                res.render('login',{
+                    login_mssg: req.body.email+" Not Registered."
+                });
             }
         }
       });
@@ -227,7 +243,9 @@ module.exports.login_post=async (req, res) => {
 
 // go to forgot password form page
 module.exports.forgotPassword_get=(req, res) => {
-    res.render('forgot_password');    
+    res.render('forgot_password',{
+        forgotPage_mssg: ""
+    });    
 }
 
 
@@ -252,19 +270,28 @@ module.exports.ForgotPasswordPost=async (req, res) => {
                         if (err) throw err;
                         sendNewPasswordMail(results1[0], req.body.email, random_password);
                         console.log("redirect to login page");
-                        res.redirect('/login');
+                        // res.redirect('/login');
+                        res.render('login',{
+                            login_mssg: "We have sent an email with NEW PASSWORD to "+req.body.email
+                        });
                     });
                     
                     // res.send(results1[0].email+" loggged in successfully.");
                 }
                 else{
                     console.log(results1[0].email+" Date of Birth does not match.");
-                    res.send(results1[0].email+" Date of Birth does not match.");
+                    // res.send(results1[0].email+" Date of Birth does not match.");
+                    res.render('forgot_password',{
+                        forgotPage_mssg: results1[0].email+", Date of Birth does not match."
+                    });
                 }
             }
             else{
                 console.log(req.body.email+" Not Registered.");
-                res.send(req.body.email+" Not Registered.");
+                // res.send(req.body.email+" Not Registered.");
+                res.render('forgot_password',{
+                    forgotPage_mssg: req.body.email+" Not Registered."
+                });
             }
         }
       });
