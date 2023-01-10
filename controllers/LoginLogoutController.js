@@ -48,9 +48,9 @@ function sendRegistrationSuccesMail(data, email, password) {
     });
 
     var mailOptions = {
-        from: 'mathsukanta2022@gmail.com',
+        from: 'AlphaBitaGama<mathsukanta2022@gmail.com>',
         to: email,
-        bcc: 'arpankumarpanja@gmail.com',
+        bcc: 'mathsukanta2022@gmail.com',
         subject: 'Registration to AlphaBitaGama',
         text: 'That was easy!',
         html: `<h1>Dear, ${data.first_name+" "+data.last_name}</h1>
@@ -96,7 +96,7 @@ async function sendNewPasswordMail(data, email, password) {
     });
 
     var mailOptions = {
-        from: 'mathsukanta2022@gmail.com',
+        from: 'AlphaBitaGama<mathsukanta2022@gmail.com>',
         to: email,
         bcc: 'mathsukanta2022@gmail.com',
         subject: 'New Password Generated for AlphaBitaGama',
