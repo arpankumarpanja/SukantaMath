@@ -18,10 +18,10 @@ const createToken = (id) => {
 
 
   // ----------------------------function to get local time --------------------------------
-  function getDateTime() {
+function getDateTime() {
     // create Date object for current location
-    const city='Bombay';
-    const offset=5.5;
+    const city = 'Bombay';
+    const offset = 5.5;
     var d = new Date();
 
     // convert to msec
@@ -31,7 +31,7 @@ const createToken = (id) => {
 
     // create new Date object for different city
     // using supplied offset
-    var nd = new Date(utc + (3600000*offset));
+    var nd = new Date(utc + (3600000 * offset));
 
     // return time as a string
     return nd.toLocaleString();
@@ -127,7 +127,7 @@ async function sendNewPasswordMail(data, email, password) {
 // go to register form page
 module.exports.register_get=(req, res) => {
     res.render('register',{
-        reg_mssg: "reg"
+        reg_mssg: ""
     });
 }
 
