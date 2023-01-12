@@ -71,6 +71,7 @@ app.get('/course/:EducationLevel/:courseSection', requireAuth, requireAdminPermi
     let ImportantNotes_sql = "SELECT * FROM pdfTable where education_level = '"+Education_Level+"' and course_section = '"+course_section+"' and pdf_type = '"+"Important Notes' order by DateTime DESC";
     let SampleQuestion_sql = "SELECT * FROM pdfTable where education_level = '"+Education_Level+"' and course_section = '"+course_section+"' and pdf_type = '"+"Sample Question' order by DateTime DESC";
     let PreviousYearQuestion_sql = "SELECT * FROM pdfTable where education_level = '"+Education_Level+"' and course_section = '"+course_section+"' and pdf_type = '"+"Previous Year Questions' order by DateTime DESC";
+    let OtherMaterials_sql = "SELECT * FROM pdfTable where education_level = '"+Education_Level+"' and course_section = '"+course_section+"' and pdf_type = '"+"Other Materials' order by DateTime DESC";
 
     let query = connection.query(syllabus_sql, (err, syllabus_rows) => {
         if(err) throw err;
@@ -84,13 +85,18 @@ app.get('/course/:EducationLevel/:courseSection', requireAuth, requireAdminPermi
                 let query = connection.query(PreviousYearQuestion_sql, (err, PreviousYearQuestion_rows) => {
                     if(err) throw err;
                     var PreviousYearQuestions=PreviousYearQuestion_rows;
-                    res.render('course', {
-                        education_level : Education_Level,
-                        course_section : course_section,
-                        pdfs1 : syllabus_rows,
-                        pdfs2 : ImportantNotes_rows,
-                        pdfs3 : SampleQuestion_rows,
-                        pdfs4 : PreviousYearQuestion_rows
+                    let query = connection.query(OtherMaterials_sql, (err, OtherMaterials_rows) => {
+                        if(err) throw err;
+                        var OtherMaterials=OtherMaterials_rows;
+                        res.render('course', {
+                            education_level : Education_Level,
+                            course_section : course_section,
+                            pdfs1 : syllabus_rows,
+                            pdfs2 : ImportantNotes_rows,
+                            pdfs3 : SampleQuestion_rows,
+                            pdfs4 : PreviousYearQuestion_rows,
+                            pdfs5 : OtherMaterials_rows
+                        });
                     });
                 });
             });

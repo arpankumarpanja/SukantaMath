@@ -2,6 +2,26 @@ var dateTime = require('node-datetime');
 const connection=require('../dbConfig');
 
 
+// ----------------------------function to get local time --------------------------------
+function getDateTime() {
+    // create Date object for current location
+    const city = 'Bombay';
+    const offset = 5.5;
+    var d = new Date();
+
+    // convert to msec
+    // subtract local time zone offset
+    // get UTC time in msec
+    var utc = d.getTime() + (d.getTimezoneOffset() * 60000);
+
+    // create new Date object for different city
+    // using supplied offset
+    var nd = new Date(utc + (3600000 * offset));
+
+    // return time as a string
+    return nd.toLocaleString();
+}
+
 // get all the pdfs
 module.exports.getAllPdf_get = (req, res) => {
     // res.send('CRUD Operation using NodeJS / ExpressJS / MySQL');
@@ -29,8 +49,9 @@ module.exports.addPdf_get=(req, res) => {
 
 // perfoming save/add operation to add new entry/record in database
 module.exports.savePdf_post=(req, res) => { 
-    var dt = dateTime.create();
-    var dt_formatted = dt.format('d-m-Y H:M:S');
+    // var dt = dateTime.create();
+    // var dt_formatted = dt.format('d-m-Y H:M:S');
+    var dt_formatted=getDateTime();
     let data = {education_level: req.body.education_level, 
                 course_section: req.body.course_section,
                 pdf_type: req.body.pdf_type,
@@ -47,7 +68,7 @@ module.exports.savePdf_post=(req, res) => {
 }
 
 
-// direct to update_pdf page to update an existing pdf through the pdf_id (by req.param.name method)
+// direct to update_pdf page to update an existing pdf through the pdf_id (by req.param.name method) by get method
 module.exports.editPdfByID_get=(req, res) => {
     const Selected_pdfId = req.params.pdfId;
     let sql = `Select * from pdfTable where pdf_id = ${Selected_pdfId}`;
@@ -61,7 +82,7 @@ module.exports.editPdfByID_get=(req, res) => {
 }
 
 
-// direct to update_pdf page to update an existing pdf through the pdf_id (by req.body.name method)
+// direct to update_pdf page to update an existing pdf through the pdf_id (by req.body.name method) by post method
 // ---------------testing purpose-------------------
 module.exports.editPdfByID_post=(req, res) => {
     const Selected_pdfId = req.body.pdf_id;
@@ -80,8 +101,9 @@ module.exports.editPdfByID_post=(req, res) => {
 // perfoming update operation to update an existing entry/record in database through the pdf_id
 module.exports.updatePdfById_post=(req, res) => {
     const pdf_id = req.body.pdf_id;
-    var dt = dateTime.create();
-    var dt_formatted = dt.format('d-m-Y H:M:S');
+    // var dt = dateTime.create();
+    // var dt_formatted = dt.format('d-m-Y H:M:S');
+    var dt_formatted=getDateTime();
     let sql = "update pdfTable SET education_level='"+req.body.education_level+
                 "',  course_section='"+req.body.course_section+
                 "',  pdf_type='"+req.body.pdf_type+

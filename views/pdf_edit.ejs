@@ -24,7 +24,7 @@
         <div class="form-group col-md-4">
           <label for="education_level">Education Level</label>
           <select id="education_level" name="education_level" class="form-control addCourse" required>
-            <option value="<%= selected_pdf.education_level %>"><%= selected_pdf.education_level %></option>
+            <option value="<%= selected_pdf.education_level %>">Pre Selected: <%= selected_pdf.education_level %></option>
             <option value="School">School</option>
             <option value="B.Sc Honours">B.Sc Honours</option>
             <option value="B.Sc General">B.Sc General</option>
@@ -35,7 +35,7 @@
         <div class="form-group col-md-4">
           <label for="course_section">Course Section/Category</label>
           <select id="course_section" name="course_section" class="form-control addCategory" required>
-            <option value="<%= selected_pdf.course_section %>"><%= selected_pdf.course_section %></option>
+            <option value="<%= selected_pdf.course_section %>">Pre Selected: <%= selected_pdf.course_section %></option>
             <option value="Class XI">Class XI</option>
             <option value="Class XII">Class XII</option>
             <option value="Semester 1">Semester 1</option>
@@ -52,11 +52,12 @@
         <div class="form-group col-md-4">
           <label for="pdf_type">PDF Type</label>
           <select id="pdf_type" name="pdf_type" class="form-control addPdfType" required>
-            <option value="<%= selected_pdf.pdf_type %>"><%= selected_pdf.pdf_type %></option>
+            <option value="<%= selected_pdf.pdf_type %>">Pre Selected: <%= selected_pdf.pdf_type %></option>
             <option value="Syllabus">Syllabus</option>
             <option value="Important Notes">Important Notes</option>
             <option value="Sample Question">Sample Questions</option>
             <option value="Previous Year Questions">Previous Year Questions</option>
+            <option value="Other Materials">Other Materials</option>
             <option value="Youtube Videos">Youtube Videos</option>
           </select>
         </div>

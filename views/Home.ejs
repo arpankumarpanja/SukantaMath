@@ -141,7 +141,7 @@
   <!-- --- bootstrap alert--- -->
   <% if (home_mssg!="" ) { %>
     <div class="alert alert-warning alert-dismissible fade show" role="alert"
-      style="position: fixed; top: 10vh; margin: 5px; width: 95%; right: 1vh; z-index: 1;">
+      style="position: fixed; top: 10vh; margin: 5px; width: 95%; right: 1vh; z-index: 1; box-shadow: 1px 2px 2px 2px rgb(77, 76, 76);">
       <strong>Important Message!</strong><br>
       <%= home_mssg %>
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">X</button>
@@ -160,7 +160,7 @@
           <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(123).jpg" class="block w-full" />
           <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed bg-black opacity-20"></div>
         </div>
-        <div class="carousel-caption  md:block absolute text-center">
+        <div class="carousel-caption hidden md:block absolute text-center">
           <h5 class="text-xl">First slide label</h5>
           <p>Some representative placeholder content for the first slide.</p>
         </div>
@@ -235,15 +235,23 @@
 <!-- ---------------------------------content section---------------------------- -->
 <section class="text-gray-600 body-font">
   <div class="container px-5 py-24 mx-auto">
-    <div class="flex flex-wrap w-full mb-20 flex-col items-center text-center">
-      <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-blue-500">Welcome !</h1>
-      <!-- <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">Why choose us</h1> -->
-      <p class="lg:w-1/2 w-full leading-relaxed text-gray-500" style="font-family: 'Lucida Handwriting';">I'm Sukanta Sir, a teacher and organiser of <strong class="text-blue-900">Alpha Bita Gama</strong>
-        (Center for studying Higher Mathematics) and also a teacher of <strong class="text-blue-900">Seharabazar Rahamania Al-Ameen Mission</strong>. Beside this now
-        I am a Indian Postal Employee. I completed my Graduation (B.Sc Honours in Mathematics) from <strong class="text-blue-900">Burdwan Raj College</strong>, Post
-        Graduation (M.Sc in Pure Mathematics) and B.Ed from <strong class="text-blue-900">The University of Burdwan</strong> (Golapbag Campus). I also qualified <strong class="text-blue-900">GATE
-        2018</strong>. I have 6 Years+ teaching experience in my field along with lots of positive remarks from the students’ end. </p>
+    <div class="flex flex-wrap w-full mb-7 flex-col items-center text-center">
+      <h1 class="sm:text-3xl text-2xl font-medium title-font text-blue-500">Welcome !</h1>
     </div>
+
+    <!-- -- edited -- -->
+    <div class="container row flex flex-wrap w-full mb-10 items-center text-center rounded" style="box-shadow: 1px 2px 2px 2px white; margin-left: 0.5vh;">
+      <div class="col-md-6 p-4"><img src="/image/logo.png" alt="photo"></div>
+      <div class="col-md-6 md:p-10 p-0">
+        <p class="lg:w-full w-full leading-relaxed text-gray-500 text-justify" style="font-family: 'Lucida Handwriting';">I'm <strong class="text-blue-900">Sukanta Sir</strong>, a teacher and organiser of <strong class="text-blue-900">Alpha Bita Gama</strong>
+          (Center for studying Higher Mathematics) and also a teacher of <strong class="text-blue-900">Seharabazar Rahamania Al-Ameen Mission</strong>. Beside this now
+          I am Indian Postal Employee. I completed my Graduation (B.Sc Honours in Mathematics) from <strong class="text-blue-900">Burdwan Raj College</strong>, Post
+          Graduation (M.Sc in Pure Mathematics) and B.Ed from <strong class="text-blue-900">The University of Burdwan</strong> (Golapbag Campus). I also qualified <strong class="text-blue-900">GATE
+          2018</strong>. I have 6 Years+ teaching experience in my field along with lots of positive remarks from the students’ end. </p>
+      </div>
+    </div>
+
+
     <div class="flex flex-wrap -m-4">
       <div class="xl:w-1/3 md:w-1/2 p-4">
         <div class="border border-gray-200 p-6 rounded-lg hover:bg-cyan-200 hover:border-gray-700">
@@ -266,7 +274,7 @@
             </svg>
           </div>
           <h2 class="text-lg text-gray-900 font-medium title-font mb-2">FLEXIBLE LEARNING</h2>
-          <p class="leading-relaxed text-base">If a studen missed a class, can join Different/Alternate Batches</p>
+          <p class="leading-relaxed text-base">If a student missed a class, can join Different/Alternate Batches</p>
         </div>
       </div>
       <div class="xl:w-1/3 md:w-1/2 p-4">
@@ -326,7 +334,7 @@
 
 
 
-<!-- ---------------------------------content section---------------------------- -->
+<!-- ---------------------------------content section 2---------------------------- -->
 <hr>
 <div style="border-bottom: 1px solid black;"></div>
 <section class="text-gray-600 body-font">
@@ -406,9 +414,9 @@ hover:drop-shadow-2xl animate-bounce duration-300">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full" viewBox="0 0 24 24">
         <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
       </svg>
-      <span class="ml-3 text-xl">Tailblocks</span>
+      <span class="ml-3 text-xl">Alpha Bita Gama</span>
     </a>
-    <p class="text-sm text-gray-400 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-800 sm:py-2 sm:mt-0 mt-4">© 2020 Tailblocks —
+    <p class="text-sm text-gray-400 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-800 sm:py-2 sm:mt-0 mt-4">© 2023 AlphaBitaGama —
       <a href="https://twitter.com/knyttneve" class="text-gray-500 ml-1" target="_blank" rel="noopener noreferrer">@apu</a>
     </p>
     <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
@@ -417,7 +425,7 @@ hover:drop-shadow-2xl animate-bounce duration-300">
           <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
         </svg>
       </a>
-      <a class="ml-3 text-gray-400" href="mathsukanta2022@gmail.com">
+      <a class="ml-3 text-gray-400" href="mailto: mathsukanta2022@gmail.com">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
           <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
         </svg>        
@@ -428,7 +436,7 @@ hover:drop-shadow-2xl animate-bounce duration-300">
           <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
         </svg>
       </a>
-      <a class="ml-3 text-gray-400">
+      <a class="ml-3 text-gray-400" href="https://www.linkedin.com/in/arpan-kumar-panja-348b2a19b" target="_blank">
         <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
           <path stroke="none" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
           <circle cx="4" cy="4" r="2" stroke="none"></circle>
