@@ -57,7 +57,8 @@ module.exports.savePdf_post=(req, res) => {
                 pdf_type: req.body.pdf_type,
                 pdf_name: req.body.pdf_name,
                 pdf_link: req.body.pdf_link,
-                DateTime: dt_formatted
+                DateTime: dt_formatted,
+                pdf_visibility: req.body.pdf_visibility
             };
     let sql = "INSERT INTO pdfTable SET ?";
     let query = connection.query(sql, data,(err, results) => {
@@ -110,6 +111,7 @@ module.exports.updatePdfById_post=(req, res) => {
                 "',  pdf_name='"+req.body.pdf_name+
                 "',  pdf_link='"+req.body.pdf_link+
                 "',  DateTime='"+dt_formatted+
+                "',  pdf_visibility='"+req.body.pdf_visibility+
                 "' where pdf_id ="+pdf_id;
     let query = connection.query(sql,(err, results) => {
       if(err) throw err;

@@ -67,11 +67,11 @@ app.get('/course/:EducationLevel/:courseSection', requireAuth, requireAdminPermi
     let Education_Level=req.params.EducationLevel;
     let course_section=req.params.courseSection;
     // query execute
-    let syllabus_sql = "SELECT * FROM pdfTable where education_level = '"+Education_Level+"' and course_section = '"+course_section+"' and pdf_type = '"+"Syllabus' order by DateTime DESC";
-    let ImportantNotes_sql = "SELECT * FROM pdfTable where education_level = '"+Education_Level+"' and course_section = '"+course_section+"' and pdf_type = '"+"Important Notes' order by DateTime DESC";
-    let SampleQuestion_sql = "SELECT * FROM pdfTable where education_level = '"+Education_Level+"' and course_section = '"+course_section+"' and pdf_type = '"+"Sample Question' order by DateTime DESC";
-    let PreviousYearQuestion_sql = "SELECT * FROM pdfTable where education_level = '"+Education_Level+"' and course_section = '"+course_section+"' and pdf_type = '"+"Previous Year Questions' order by DateTime DESC";
-    let OtherMaterials_sql = "SELECT * FROM pdfTable where education_level = '"+Education_Level+"' and course_section = '"+course_section+"' and pdf_type = '"+"Other Materials' order by DateTime DESC";
+    let syllabus_sql = "SELECT * FROM pdfTable where education_level = '"+Education_Level+"' and course_section = '"+course_section+"' and pdf_type = '"+"Syllabus' and pdf_visibility = 'show' order by DateTime DESC";
+    let ImportantNotes_sql = "SELECT * FROM pdfTable where education_level = '"+Education_Level+"' and course_section = '"+course_section+"' and pdf_type = '"+"Important Notes' and pdf_visibility = 'show' order by DateTime DESC";
+    let SampleQuestion_sql = "SELECT * FROM pdfTable where education_level = '"+Education_Level+"' and course_section = '"+course_section+"' and pdf_type = '"+"Sample Question' and pdf_visibility = 'show' order by DateTime DESC";
+    let PreviousYearQuestion_sql = "SELECT * FROM pdfTable where education_level = '"+Education_Level+"' and course_section = '"+course_section+"' and pdf_type = '"+"Previous Year Questions' and pdf_visibility = 'show' order by DateTime DESC";
+    let OtherMaterials_sql = "SELECT * FROM pdfTable where education_level = '"+Education_Level+"' and course_section = '"+course_section+"' and pdf_type = '"+"Other Materials' and pdf_visibility = 'show' order by DateTime DESC";
 
     let query = connection.query(syllabus_sql, (err, syllabus_rows) => {
         if(err) throw err;

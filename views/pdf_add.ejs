@@ -54,10 +54,22 @@
           </select>
         </div>
       </div>
-      <div class="form-group">
-        <label for="pdf_name">PDF Name</label>
-        <input type="text" class="form-control" id="pdf_name" name="pdf_name" placeholder="Enter PDF Name" required/>
+
+      <div class="form-row">
+        <div class="form-group col-md-8">
+          <label for="pdf_name">PDF Name</label>
+          <input type="text" class="form-control" id="pdf_name" name="pdf_name" placeholder="Enter PDF Name" required/>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="pdf_visibility">PDF Visibility</label>
+          <select id="pdf_visibility" name="pdf_visibility" class="form-control " required>
+            <option value="show">Show</option>
+            <option value="hide">Hide</option>
+          </select>
+        </div>
       </div>
+
+      
       <div class="form-group">
         <label for="pdf_link">PDF Link</label>
         <input type="url" class="form-control" id="pdf_link" name="pdf_link" placeholder="Enter PDF Link/url" required/>

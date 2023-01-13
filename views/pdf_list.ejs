@@ -34,7 +34,7 @@
           <tbody>
             <% pdfs.forEach(function(pdf){ %>
               <tr>
-                <td>
+                <td <% if (pdf.pdf_visibility==="hide") { %>class="bg-red-500 rounded" <% } %>>
                   <%= pdf.pdf_id %>
                 </td>
                 <td>
@@ -46,7 +46,8 @@
                 <td>
                   <%= pdf.pdf_type %>
                 </td>
-                <td><a href="<%= pdf.pdf_link %>" target="_blank">
+                <td <% if (pdf.pdf_visibility==="hide") { %>class="bg-red-500 rounded" <% } %>>
+                  <a href="<%= pdf.pdf_link %>" target="_blank">
                     <%= pdf.pdf_name %>
                   </a></td>
                 <td>
