@@ -13,9 +13,9 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-
 <div class="container card mt-4">
   <h2 class="card-header text-center bg-gray-900" style="background-color: lightseagreen; color: white;"><%= title %></h2>
+  <!-- -------- pdf list search form --------- -->
   <div class="card-body border border-primary">
     <form action="/SearchPdf" method="post">
       <div class="form-row">
@@ -64,12 +64,12 @@
           <input type="text" class="form-control" id="searched_pdf_name" name="searched_pdf_name" placeholder="Enter PDF Name"/>
         </div>
       </div>      
-      <button type="submit" class="btn btn-primary bg-blue-700">SEARCH</button>
+      <button type="submit" class="btn btn-primary bg-blue-500 btn-block">SEARCH</button>
     </form>
   </div>
 
 
-
+<!-- -------- pdf list table --------- -->
   <div class="card-body">
       <a href="/AddPdf" class="btn btn-sm btn-primary" style="display: inline-block;">Add PDF</a><br/><br/>
       <div class="table-responsive">

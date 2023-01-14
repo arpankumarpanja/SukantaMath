@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 const connection=require('../dbConfig');
 
 
-// get all the pdfs
+// get all the students
 module.exports.getAllStudents_get = (req, res) => {
     // res.send('CRUD Operation using NodeJS / ExpressJS / MySQL');
     let sql = "SELECT * FROM studentTable";
@@ -18,6 +18,61 @@ module.exports.getAllStudents_get = (req, res) => {
     // console.log(rows1);
 }
 
+
+
+// get the students acording to conditions
+module.exports.SearchStudent_post = (req, res) => {
+    let sql = "SELECT * FROM studentTable";
+    let condition=" WHERE";
+    let checker=0;
+    // checking if selected education_level
+    if(req.body.searched_education_level !== ""){
+        condition+=` education_level='${req.body.searched_education_level}'`;
+        checker=1;
+    }
+
+    // checking if selected course_section
+    if(req.body.searched_course_section !== "" && checker==0){
+        condition+=` course_section='${req.body.searched_course_section}'`;
+        checker=1;
+    }
+    else if(req.body.searched_course_section !== "" && checker==1){
+        condition+=` and course_section='${req.body.searched_course_section}'`;
+    }
+
+    // checking if entered student  ID
+    if(req.body.searched_student_id !== "" && checker==0){
+        condition+=` student_id='${req.body.searched_student_id}'`;
+        checker=1;
+    }
+    else if(req.body.searched_student_id !== "" && checker==1){
+        condition+=` and student_id='${req.body.searched_student_id}'`;
+    }
+
+    // checking if enterd any pdf_name
+    if(req.body.searched_first_name !== "" && checker==0){
+        condition+=` first_name LIKE '%${req.body.searched_first_name}%'`;
+        checker=1;
+    }
+    else if(req.body.searched_first_name !== "" && checker==1){
+        condition+=` and first_name LIKE '%${req.body.searched_first_name}%'`;
+    }
+
+    // checking if any comndition selected then only add the conditions
+    if(checker==1){
+        sql+=condition;
+    }
+
+    let query = connection.query(sql, (err, rows) => {
+        if(err) throw err;
+        res.render('student_list', {
+            title : 'MANAGE ALL STUDENTS',
+            students : rows
+        });
+    });
+    // rows1=rows
+    // console.log(rows1);
+}
 
 
 

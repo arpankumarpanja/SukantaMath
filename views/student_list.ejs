@@ -16,6 +16,51 @@
 
 <div class="container card mt-4">
   <h2 class="card-header text-center bg-gray-900" style="background-color: lightseagreen; color: white;"><%= title %></h2>
+
+  <div class="card-body border border-primary mt-1">
+    <form action="/SearchStudent" method="post">
+      <div class="form-row">
+        <div class="form-group col-md-2">
+          <label for="searched_education_level">Education Level</label>
+          <select id="searched_education_level" name="searched_education_level" class="form-control addCourse">
+            <option value="">Please Select...</option>
+            <option value="School">School</option>
+            <option value="B.Sc Honours">B.Sc Honours</option>
+            <option value="B.Sc General">B.Sc General</option>
+            <option value="BCA">BCA</option>
+            <option value="Entrance">Entrance Exam</option>
+          </select>
+        </div>
+        <div class="form-group col-md-2">
+          <label for="searched_course_section">Course Section/Category</label>
+          <select id="searched_course_section" name="searched_course_section" class="form-control addCategory">
+            <option value="">Please Select...</option>
+            <option value="Class XI">Class XI</option>
+            <option value="Class XII">Class XII</option>
+            <option value="Semester 1">Semester 1</option>
+            <option value="Semester 2">Semester 2</option>
+            <option value="Semester 3">Semester 3</option>
+            <option value="Semester 4">Semester 4</option>
+            <option value="Semester 5">Semester 5</option>
+            <option value="Semester 6">Semester 6</option>
+            <option value="JEE">JEE</option>
+            <option value="M.Sc">M.Sc</option>
+            <option value="S.S.C">S.S.C</option>
+          </select>
+        </div>
+        <div class="form-group col-md-2">
+          <label for="searched_student_id">Student ID</label>
+          <input type="text" class="form-control" id="searched_student_id" name="searched_student_id" placeholder="Enter Student ID"/>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="searched_first_name">Student First Name</label>
+          <input type="text" class="form-control" id="searched_first_name" name="searched_first_name" placeholder="Enter Student First Name"/>
+        </div>
+      </div>      
+      <button type="submit" class="btn btn-primary bg-blue-500 btn-block">SEARCH</button>
+    </form>
+  </div>
+
   <div class="card-body">
       <a href="/AddPdf" class="btn btn-sm btn-primary" style="display: inline-block;">Add PDF</a><br/><br/>
       <div class="table-responsive">

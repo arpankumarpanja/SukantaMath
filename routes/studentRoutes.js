@@ -10,6 +10,9 @@ const UserAuthMiddleware = require('../middlewares/userAuthMiddlware');
 Router.get('/studentList', adminAuthMiddlware.requireAdminAuth, student_controller.getAllStudents_get);
 
 
+// get the Student details acording to condition
+Router.post('/SearchStudent', adminAuthMiddlware.requireAdminAuth, student_controller.SearchStudent_post);
+
 // direct to update_student form page to update an existing student through the student_id (by req.param.name method)
 Router.get('/EditStudent/:studentId', adminAuthMiddlware.requireAdminAuth, student_controller.editStudentByID_get);
 
