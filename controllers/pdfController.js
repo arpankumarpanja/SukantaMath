@@ -39,6 +39,62 @@ module.exports.getAllPdf_get = (req, res) => {
 }
 
 
+// get pdfs acording to condition SearchPdf_post
+module.exports.SearchPdf_post = (req, res) => {
+    // res.send('CRUD Operation using NodeJS / ExpressJS / MySQL');
+    let sql = "SELECT * FROM pdfTable";
+    let condition=" WHERE";
+    let checker=0;
+    // checking if selected education_level
+    if(req.body.searched_education_level !== ""){
+        condition+=` education_level='${req.body.searched_education_level}'`;
+        checker=1;
+    }
+
+    // checking if selected course_section
+    if(req.body.searched_course_section !== "" && checker==0){
+        condition+=` course_section='${req.body.searched_course_section}'`;
+        checker=1;
+    }
+    else if(req.body.searched_course_section !== "" && checker==1){
+        condition+=` and course_section='${req.body.searched_course_section}'`;
+    }
+
+    // checking if selected pdf_type
+    if(req.body.searched_pdf_type !== "" && checker==0){
+        condition+=` pdf_type='${req.body.searched_pdf_type}'`;
+        checker=1;
+    }
+    else if(req.body.searched_pdf_type !== "" && checker==1){
+        condition+=` and pdf_type='${req.body.searched_pdf_type}'`;
+    }
+
+    // checking if enterd any pdf_name
+    if(req.body.searched_pdf_name !== "" && checker==0){
+        condition+=` pdf_name LIKE '%${req.body.searched_pdf_name}%'`;
+        checker=1;
+    }
+    else if(req.body.searched_pdf_name !== "" && checker==1){
+        condition+=` and pdf_name LIKE '%${req.body.searched_pdf_name}%'`;
+    }
+
+    // checking if any comndition selected then only add the conditions
+    if(checker==1){
+        sql+=condition;
+    }
+
+    let query = connection.query(sql, (err, rows) => {
+        if(err) throw err;
+        var rows1=rows;
+        res.render('pdf_list', {
+            title : 'MANAGE ALL PDFS',
+            pdfs : rows
+        });
+    });
+} 
+
+
+
 // direct to add_pdf page to add a new pdf
 module.exports.addPdf_get=(req, res) => {
     res.render('pdf_add', {

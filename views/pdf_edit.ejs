@@ -24,41 +24,38 @@
         <div class="form-group col-md-4">
           <label for="education_level">Education Level</label>
           <select id="education_level" name="education_level" class="form-control addCourse" required>
-            <option value="<%= selected_pdf.education_level %>">Pre Selected: <%= selected_pdf.education_level %></option>
-            <option value="School">School</option>
-            <option value="B.Sc Honours">B.Sc Honours</option>
-            <option value="B.Sc General">B.Sc General</option>
-            <option value="BCA">BCA</option>
-            <option value="Entrance">Entrance Exam</option>
+            <option value="School" <% if (selected_pdf.education_level==="School") { %>Selected <% } %> >School</option>
+            <option value="B.Sc Honours" <% if (selected_pdf.education_level==="B.Sc Honours") { %>Selected <% } %> >B.Sc Honours</option>
+            <option value="B.Sc General" <% if (selected_pdf.education_level==="B.Sc General") { %>Selected <% } %> >B.Sc General</option>
+            <option value="BCA" <% if (selected_pdf.education_level==="BCA") { %>Selected <% } %> >BCA</option>
+            <option value="Entrance" <% if (selected_pdf.education_level==="Entrance") { %>Selected <% } %> >Entrance Exam</option>
           </select>
         </div>
         <div class="form-group col-md-4">
           <label for="course_section">Course Section/Category</label>
           <select id="course_section" name="course_section" class="form-control addCategory" required>
-            <option value="<%= selected_pdf.course_section %>">Pre Selected: <%= selected_pdf.course_section %></option>
-            <option value="Class XI">Class XI</option>
-            <option value="Class XII">Class XII</option>
-            <option value="Semester 1">Semester 1</option>
-            <option value="Semester 2">Semester 2</option>
-            <option value="Semester 3">Semester 3</option>
-            <option value="Semester 4">Semester 4</option>
-            <option value="Semester 5">Semester 5</option>
-            <option value="Semester 6">Semester 6</option>
-            <option value="JEE">JEE</option>
-            <option value="M.Sc">M.Sc</option>
-            <option value="S.S.C">S.S.C</option>
+            <option value="Class XI" <% if (selected_pdf.course_section==="Class XI") { %>Selected <% } %> >Class XI</option>
+            <option value="Class XII" <% if (selected_pdf.course_section==="Class XII") { %>Selected <% } %> >Class XII</option>
+            <option value="Semester 1" <% if (selected_pdf.course_section==="Semester 1") { %>Selected <% } %> >Semester 1</option>
+            <option value="Semester 2" <% if (selected_pdf.course_section==="Semester 2") { %>Selected <% } %> >Semester 2</option>
+            <option value="Semester 3" <% if (selected_pdf.course_section==="Semester 3") { %>Selected <% } %> >Semester 3</option>
+            <option value="Semester 4" <% if (selected_pdf.course_section==="Semester 4") { %>Selected <% } %> >Semester 4</option>
+            <option value="Semester 5" <% if (selected_pdf.course_section==="Semester 5") { %>Selected <% } %> >Semester 5</option>
+            <option value="Semester 6" <% if (selected_pdf.course_section==="Semester 6") { %>Selected <% } %> >Semester 6</option>
+            <option value="JEE" <% if (selected_pdf.course_section==="JEE") { %>Selected <% } %> >JEE</option>
+            <option value="M.Sc" <% if (selected_pdf.course_section==="M.Sc") { %>Selected <% } %> >M.Sc</option>
+            <option value="S.S.C" <% if (selected_pdf.course_section==="S.S.C") { %>Selected <% } %> >S.S.C</option>
           </select>
         </div>
         <div class="form-group col-md-4">
           <label for="pdf_type">PDF Type</label>
           <select id="pdf_type" name="pdf_type" class="form-control addPdfType" required>
-            <option value="<%= selected_pdf.pdf_type %>">Pre Selected: <%= selected_pdf.pdf_type %></option>
-            <option value="Syllabus">Syllabus</option>
-            <option value="Important Notes">Important Notes</option>
-            <option value="Sample Question">Sample Questions</option>
-            <option value="Previous Year Questions">Previous Year Questions</option>
-            <option value="Other Materials">Other Materials</option>
-            <option value="Youtube Videos">Youtube Videos</option>
+            <option value="Syllabus" <% if (selected_pdf.pdf_type==="Syllabus") { %>Selected <% } %> >Syllabus</option>
+            <option value="Important Notes" <% if (selected_pdf.pdf_type==="Important Notes") { %>Selected <% } %> >Important Notes</option>
+            <option value="Sample Question" <% if (selected_pdf.pdf_type==="Sample Question") { %>Selected <% } %> >Sample Questions</option>
+            <option value="Previous Year Questions" <% if (selected_pdf.pdf_type==="Previous Year Questions") { %>Selected <% } %> >Previous Year Questions</option>
+            <option value="Other Materials" <% if (selected_pdf.pdf_type==="Other Materials") { %>Selected <% } %> >Other Materials</option>
+            <option value="Youtube Videos" <% if (selected_pdf.pdf_type==="Youtube Videos") { %>Selected <% } %> >Youtube Videos</option>
           </select>
         </div>
       </div>
@@ -71,9 +68,8 @@
         <div class="form-group col-md-4">
           <label for="pdf_visibility">PDF Visibility</label>
           <select id="pdf_visibility" name="pdf_visibility" class="form-control " required>
-            <option value="<%= selected_pdf.pdf_visibility %>">Pre Selected: <%= selected_pdf.pdf_visibility %></option>
-            <option value="show">Show</option>
-            <option value="hide">Hide</option>
+            <option value="show" <% if (selected_pdf.pdf_visibility==="show") { %>Selected <% } %>>Show</option>
+            <option value="hide" <% if (selected_pdf.pdf_visibility==="hide") { %>Selected <% } %>>Hide</option>
           </select>
         </div>
       </div>

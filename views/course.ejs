@@ -422,14 +422,14 @@ height: 200px;
 
                   <!-- pdf rendering for OTHER MATERIALS -->
                   <% pdfs5.forEach(function(pdf){ %>
-                    <div class="row mb-2" style="text-align: center; border-bottom: 1px solid rgb(181, 180, 180);">
-                      <div class="form-group col-md-2 mb-0 flex bg-gray-300">
+                    <div class="row mb-2 bg-gradient-to-r from-orange-500 via-white to-green-500" style="text-align: center; border-bottom: 1px solid rgb(181, 180, 180);">
+                      <div class="form-group col-md-2 mb-0 flex">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="green" class="w-6 h-6">
                           <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg> <pre>  # <%= pdf.pdf_id %></pre>                    
                       </div>
 
-                      <div class="form-group col-md-7 mb-0 bg-blue-300">
+                      <div class="form-group col-md-7 mb-0">
                         <!-- <a href="<%= pdf.pdf_link %>" target="_blank" class="text-blue-800"><%= pdf.pdf_name %></a> -->
                         <form action="/ViewPdf" method="post">
                           <input type="text" class="form-control" id="pdf_link" name="pdf_link" value="<%= pdf.pdf_link %>" required readonly hidden/>
@@ -437,7 +437,7 @@ height: 200px;
                         </form>
                       </div>
 
-                      <div class="form-group col-md-3 mb-0 bg-yellow-300">
+                      <div class="form-group col-md-3 mb-0">
                         <%= pdf.DateTime %>
                       </div>
                     </div>

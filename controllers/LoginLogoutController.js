@@ -189,7 +189,7 @@ module.exports.register_post=async (req, res) => {
                     sendRegistrationSuccesMail(data,data.email,random_password);
                     // res.redirect('/login');
                     res.render('login',{
-                        login_mssg: "Your Email: "+data.email+"\n Your Password: "+random_password
+                        login_mssg: "We have sent an email with your Registration details and LOGIN CREDENTIALS to "+req.body.email
                     });
                 });
                 console.log(data);

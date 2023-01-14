@@ -10,15 +10,22 @@ const requireUserAuth = require('../middlewares/userAuthMiddlware');
 
 
 
-// get all the pdfs
+
+
+// ------------ added admin_auth middewares to all the path to secure the routes only for admin.
+// get all pdf
 Router.get('/pdfList', adminAuthMiddlware.requireAdminAuth, pdf_controller.getAllPdf_get);
 
 
 
-// ------------ added admin_auth middewares to all the path to secure the routes only for admin.
+// get all the pdfs acording to condion
+Router.post('/SearchPdf', adminAuthMiddlware.requireAdminAuth, pdf_controller.SearchPdf_post);
+
+
 
 // direct to add_pdf page to add a new pdf
 Router.get('/AddPdf', adminAuthMiddlware.requireAdminAuth, pdf_controller.addPdf_get);
+
 
 
 
