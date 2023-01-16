@@ -9,7 +9,7 @@ var nodemailer = require('nodemailer');
 
 
 // create json web token
-const maxAge = 5 * 60 * 60;    //(5 hours set for now) for 3 days 3 * 24 * 60 * 60, for 5 minute 5*60  
+const maxAge = 4 * 60 * 60;    //(4 hours set for now) for 3 days 3 * 24 * 60 * 60, for 5 minute 5*60  
 const createToken = (id) => {
   return jwt.sign({ id }, process.env.student_token_secret, {
     expiresIn: maxAge

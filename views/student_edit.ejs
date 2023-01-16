@@ -73,15 +73,15 @@
         </div>
 
 
-        <!-- 4. gender / education_level / course_section -->
+        <!-- 4. gender / date of birth / education_level / course_section -->
         <div class="row" style="text-align: left;">
             <div class="form-group col-md-3 mb-4">
                 <label for="gender" class="form-label">7. Gender</label>
                 <select id="gender" name="gender" class="form-control" required>
-                  <option value="<%= selected_student.gender %>"><%= selected_student.gender %></option>
-                  <option value="Male">Male</option>
-                  <option value="Female">Female</option>
-                  <option value="Others">Others</option>
+                  <!-- <option value="<%= selected_student.gender %>"><%= selected_student.gender %></option> -->
+                  <option value="Male" <% if (selected_student.gender==="Male") { %>Selected <% } %> >Male</option>
+                  <option value="Female" <% if (selected_student.gender==="Female") { %>Selected <% } %> >Female</option>
+                  <option value="Others" <% if (selected_student.gender==="Others") { %>Selected <% } %> >Others</option>
                 </select>
             </div>
             <div class="form-group col-md-3 mb-4">
@@ -91,29 +91,28 @@
             <div class="form-group col-md-3 mb-4">
               <label for="education_level" class="form-label">9. Education Level</label>
               <select id="education_level" name="education_level" class="form-control addCourse" required>
-                <option value="<%= selected_student.education_level %>"><%= selected_student.education_level %></option>
-                <option value="School">School</option>
-                <option value="B.Sc Honours">B.Sc Honours</option>
-                <option value="B.Sc General">B.Sc General</option>
-                <option value="BCA">BCA</option>
-                <option value="Entrance">Entrance Exam</option>
+                <!-- <option value="<%= selected_student.education_level %>"><%= selected_student.education_level %></option> -->
+                <option value="School" <% if (selected_student.education_level==="School") { %>Selected <% } %> >School</option>
+                <option value="B.Sc Honours" <% if (selected_student.education_level==="B.Sc Honours") { %>Selected <% } %> >B.Sc Honours</option>
+                <option value="B.Sc General" <% if (selected_student.education_level==="B.Sc General") { %>Selected <% } %> >B.Sc General</option>
+                <option value="BCA" <% if (selected_student.education_level==="BCA") { %>Selected <% } %> >BCA</option>
+                <option value="Entrance" <% if (selected_student.education_level==="Entrance") { %>Selected <% } %> >Entrance Exam</option>
               </select>
             </div>
             <div class="form-group col-md-3 mb-4">
               <label for="course_section" class="form-label">10. Course Section</label>
               <select id="course_section" name="course_section" class="form-control addCategory" required>
-                <option value="<%= selected_student.course_section %>"><%= selected_student.course_section %></option>
-                <option value="Class XI">Class XI</option>
-                <option value="Class XII">Class XII</option>
-                <option value="Semester 1">Semester 1</option>
-                <option value="Semester 2">Semester 2</option>
-                <option value="Semester 3">Semester 3</option>
-                <option value="Semester 4">Semester 4</option>
-                <option value="Semester 5">Semester 5</option>
-                <option value="Semester 6">Semester 6</option>
-                <option value="JEE">JEE</option>
-                <option value="M.Sc">M.Sc</option>
-                <option value="S.S.C">S.S.C</option>
+                <option value="Class XI" <% if (selected_student.course_section==="Class XI") { %>Selected <% } %> >Class XI</option>
+                <option value="Class XII" <% if (selected_student.course_section==="Class XII") { %>Selected <% } %> >Class XII</option>
+                <option value="Semester 1" <% if (selected_student.course_section==="Semester 1") { %>Selected <% } %> >Semester 1</option>
+                <option value="Semester 2" <% if (selected_student.course_section==="Semester 2") { %>Selected <% } %> >Semester 2</option>
+                <option value="Semester 3" <% if (selected_student.course_section==="Semester 3") { %>Selected <% } %> >Semester 3</option>
+                <option value="Semester 4" <% if (selected_student.course_section==="Semester 4") { %>Selected <% } %> >Semester 4</option>
+                <option value="Semester 5" <% if (selected_student.course_section==="Semester 5") { %>Selected <% } %> >Semester 5</option>
+                <option value="Semester 6" <% if (selected_student.course_section==="Semester 6") { %>Selected <% } %> >Semester 6</option>
+                <option value="JEE" <% if (selected_student.course_section==="JEE") { %>Selected <% } %> >JEE</option>
+                <option value="M.Sc" <% if (selected_student.course_section==="M.Sc") { %>Selected <% } %> >M.Sc</option>
+                <option value="S.S.C" <% if (selected_student.course_section==="S.S.C") { %>Selected <% } %> >S.S.C</option>
               </select>
             </div>
         </div>
@@ -144,9 +143,8 @@
             <div class="form-group col-md-4 mb-4">
                 <label for="permission" class="form-label">14. Permission Status</label>
                 <select id="permission" name="permission" class="form-control" required>
-                  <option value="<%= selected_student.permission %>"><%= selected_student.permission %></option>
-                  <option value="Approve">Approve</option>
-                  <option value="Decline">Decline</option>
+                  <option value="Approve" <% if (selected_student.permission==="Approve") { %>Selected <% } %> >Approve</option>
+                  <option value="Decline" <% if (selected_student.permission==="Decline") { %>Selected <% } %> >Decline</option>
                 </select>
             </div>
         </div>
