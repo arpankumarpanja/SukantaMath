@@ -85,7 +85,8 @@ module.exports.editStudentByID_get=(req, res) => {
         if(err) throw err;
         res.render('student_edit', {
             title : 'EDIT STUDENT',
-            selected_student : result[0]
+            selected_student : result[0],
+            payment : JSON.parse(result[0].payment)
         });
     });
 }
@@ -97,6 +98,9 @@ module.exports.updateStudentById_post= async(req, res) => {
     const student_id = req.body.student_id;
     // var dt = dateTime.create();
     // var dt_formatted = dt.format('d-m-Y H:M:S');
+
+    var payment=`{"january":"${req.body.january}","february":"${req.body.february}","march":"${req.body.march}","april":"${req.body.april}","may":"${req.body.may}","june":"${req.body.june}","july":"${req.body.july}","august":"${req.body.august}","september":"${req.body.september}","october":"${req.body.october}","november":"${req.body.november}","december":"${req.body.december}"}`;
+    // console.log("payment: "+payment);
     let sql = "update studentTable SET first_name='"+req.body.first_name+
                 "',  last_name='"+req.body.last_name+
                 "',  email='"+req.body.email+
@@ -108,7 +112,8 @@ module.exports.updateStudentById_post= async(req, res) => {
                 "',  course_section='"+req.body.course_section+
                 "',  institution='"+req.body.institution+
                 "',  address='"+req.body.address+
-                "',  permission='"+req.body.permission;
+                "',  permission='"+req.body.permission+
+                "',  payment='"+payment;
     if(req.body.password !== ""){
         //hashing password
         const salt = await bcrypt.genSalt();
@@ -149,7 +154,8 @@ module.exports.viewStudentProfile_post=(req, res) => {
         if(err) throw err;
         res.render('student_profile', {
             title : 'YOUR PROFILE',
-            selected_student : result[0]
+            selected_student : result[0],
+            payment : JSON.parse(result[0].payment)
         });
     });
 }

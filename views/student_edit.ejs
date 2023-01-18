@@ -154,7 +154,130 @@
             <label class="form-label" for="reg_DateTime">15. Registration Date Time</label>
             <input type="text" id="reg_DateTime" name="reg_DateTime" class="form-control" value="<%= selected_student.reg_DateTime %>" readonly/>
         </div>
-      
+
+
+        <!-- 9. Payment Status -->
+        <div class="card-body border border-primary pt-0 pl-0 pr-0 mb-4">
+            <h4 class="block p-1 text-center" style="background-color: lightseagreen; color: white;">Payments</h4>
+            <div class="row pl-md-5 pl-3">
+                <div class="row col-md-4 mb-4">
+                    <!-- 1.january -->
+                    <div class="form-group col">
+                        <label for="january" class="form-label" <% if (payment.january==="received") { %>style="color:green; font-weight: bold;"<% } %> >1.January</label>
+                        <select id="january" name="january" class="form-control" required>
+                        <option value="received"<% if (payment.january==="received") { %>Selected <% } %> >Received</option>
+                        <option value="pending"<% if (payment.january==="pending") { %>Selected <% } %> >Pending</option>
+                        </select>
+                    </div>
+                    <!-- 2. February -->
+                    <div class="form-group col">
+                        <label for="february" class="form-label" <% if (payment.february==="received") { %>style="color:green; font-weight: bold;"<% } %> >2.February</label>
+                        <select id="february" name="february" class="form-control" required>
+                        <option value="received"<% if (payment.february==="received") { %>Selected <% } %> >Received</option>
+                        <option value="pending"<% if (payment.february==="pending") { %>Selected <% } %> >Pending</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="row col-md-4 mb-4">
+                    <!-- 3. March -->
+                    <div class="form-group col">
+                        <label for="march" class="form-label" <% if (payment.march==="received") { %>style="color:green; font-weight: bold;"<% } %> >3.March</label>
+                        <select id="march" name="march" class="form-control" required>
+                        <option value="received"<% if (payment.march==="received") { %>Selected <% } %> >Received</option>
+                        <option value="pending"<% if (payment.march==="pending") { %>Selected <% } %> >Pending</option>
+                        </select>
+                    </div>
+                    <!-- 4. April -->
+                    <div class="form-group col">
+                        <label for="april" class="form-label" <% if (payment.april==="received") { %>style="color:green; font-weight: bold;"<% } %> >4.April</label>
+                        <select id="april" name="april" class="form-control" required>
+                        <option value="received"<% if (payment.april==="received") { %>Selected <% } %> >Received</option>
+                        <option value="pending"<% if (payment.april==="pending") { %>Selected <% } %> >Pending</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row col-md-4 mb-4">
+                    <!-- 5. May -->
+                    <div class="form-group col">
+                        <label for="may" class="form-label" <% if (payment.may==="received") { %>style="color:green; font-weight: bold;"<% } %> >5.May</label>
+                        <select id="may" name="may" class="form-control" required>
+                            <option value="received"<% if (payment.may==="received" ) { %>Selected <% } %>>Received</option>
+                            <option value="pending"<% if (payment.may==="pending" ) { %>Selected <% } %> >Pending</option>
+                        </select>
+                    </div>
+                    <!-- 6. June -->
+                    <div class="form-group col">
+                        <label for="june" class="form-label" <% if (payment.june==="received") { %>style="color:green; font-weight: bold;"<% } %> >6.june</label>
+                        <select id="june" name="june" class="form-control" required>
+                        <option value="received"<% if (payment.june==="received") { %>Selected <% } %> >Received</option>
+                        <option value="pending"<% if (payment.june==="pending") { %>Selected <% } %> >Pending</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row pl-md-5 pl-3">
+                <div class="row col-md-4 mb-4">
+                    <!-- 7.July -->
+                    <div class="form-group col">
+                        <label for="july" class="form-label" <% if (payment.july==="received") { %>style="color:green; font-weight: bold;"<% } %> >7.July</label>
+                        <select id="july" name="july" class="form-control" required>
+                        <option value="received"<% if (payment.july==="received") { %>Selected <% } %> >Received</option>
+                        <option value="pending"<% if (payment.july==="pending") { %>Selected <% } %> >Pending</option>
+                        </select>
+                    </div>
+                    <!-- 8. August -->
+                    <div class="form-group col">
+                        <label for="august" class="form-label" <% if (payment.august==="received") { %>style="color:green; font-weight: bold;"<% } %> >8.August</label>
+                        <select id="august" name="august" class="form-control" required>
+                        <option value="received"<% if (payment.august==="received") { %>Selected <% } %> >Received</option>
+                        <option value="pending"<% if (payment.august==="pending") { %>Selected <% } %> >Pending</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="row col-md-4 mb-4">
+                    <!-- 9. September -->
+                    <div class="form-group col">
+                        <label for="september" class="form-label" <% if (payment.september==="received") { %>style="color:green; font-weight: bold;"<% } %> >9.September</label>
+                        <select id="september" name="september" class="form-control" required>
+                        <option value="received"<% if (payment.september==="received") { %>Selected <% } %> >Received</option>
+                        <option value="pending"<% if (payment.september==="pending") { %>Selected <% } %> >Pending</option>
+                        </select>
+                    </div>
+                    <!--10. October -->
+                    <div class="form-group col">
+                        <label for="october" class="form-label" <% if (payment.october==="received") { %>style="color:green; font-weight: bold;"<% } %> >10.October</label>
+                        <select id="october" name="october" class="form-control" required>
+                        <option value="received"<% if (payment.october==="received") { %>Selected <% } %> >Received</option>
+                        <option value="pending"<% if (payment.october==="pending") { %>Selected <% } %> >Pending</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row col-md-4 mb-4">
+                    <!-- 11. November -->
+                    <div class="form-group col">
+                        <label for="november" class="form-label" <% if (payment.november==="received") { %>style="color:green; font-weight: bold;"<% } %> >11.November</label>
+                        <select id="november" name="november" class="form-control" required>
+                        <option value="received"<% if (payment.november==="received") { %>Selected <% } %> >Received</option>
+                        <option value="pending"<% if (payment.november==="pending") { %>Selected <% } %> >Pending</option>
+                        </select>
+                    </div>
+                    <!-- 12. December -->
+                    <div class="form-group col">
+                        <label for="december" class="form-label" <% if (payment.december==="received") { %>style="color:green; font-weight: bold;"<% } %> >12.December</label>
+                        <select id="december" name="december" class="form-control" required>
+                        <option value="received"<% if (payment.december==="received") { %>Selected <% } %> >Received</option>
+                        <option value="pending"<% if (payment.december==="pending") { %>Selected <% } %> >Pending</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
       <button type="submit" class="btn btn-primary">UPDATE</button>
     </form>
   </div>

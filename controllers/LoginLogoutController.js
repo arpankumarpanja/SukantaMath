@@ -164,6 +164,7 @@ module.exports.register_post=async (req, res) => {
                 //hashing password
                 const salt = await bcrypt.genSalt();
                 const hashed_password = await bcrypt.hash(random_password, salt);
+                let payment=`{"january":"pending","february":"pending","march":"pending","april":"pending","may":"pending","june":"pending","july":"pending","august":"pending","september":"pending","october":"pending","november":"pending","december":"pending"}`;
                 let data = {
                     first_name: req.body.first_name,
                     last_name: req.body.last_name,
@@ -179,7 +180,8 @@ module.exports.register_post=async (req, res) => {
                     address: req.body.address,
                     password: hashed_password,
                     reg_DateTime: local_date_time,
-                    permission: "Decline"
+                    permission: "Decline",
+                    payment: payment
                 };
                 let sql = "INSERT INTO studentTable SET ?";
                 let query = connection.query(sql, data, (err, results) => {
