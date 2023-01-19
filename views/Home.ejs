@@ -144,7 +144,7 @@
       style="position: fixed; top: 10vh; margin: 5px; width: 95%; right: 1vh; z-index: 1; box-shadow: 1px 2px 2px 2px rgb(77, 76, 76);">
       <strong>Important Message!</strong><br>
       <%= home_mssg %>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">X</button>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">✖</button>
     </div>
   <% } %>
 
@@ -227,6 +227,20 @@
 
 
 
+  <!-- -- Announcements -- -->
+  <div class="card border border-primary m-md-5 m-3">
+    <h4 class="card-header block p-1 text-center mb-2" style="background-color: #db894e; color: white; font-weight: bold;">ANNOUNCEMENTS</h4>
+    <div class="card-body p-0">
+      <marquee behavior="" scrollamount="2" loop="1000" direction="up" class="ml-2 mr-2">
+        <ul style="height: 150px;">
+          <% announcements.forEach(function(announcement){ %>
+            <li class="text-blue-800">⭐&nbsp;&nbsp;<%= announcement.announcement_title %></li>   
+            <% }); %>
+        </ul>
+      </marquee>
+    </div>
+  </div>
+  
 
 
 

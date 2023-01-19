@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title><%= title %></title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container card mt-4">
+  <h2 class="card-header text-center bg-gray-900" style="background-color: lightseagreen; color: white;"><%= title %></h2>
+  <div class="card-body">
+    <form action="/UpdateAnnouncement" method="post">
+        <div class="form-group">
+            <label for="announcement_id">ANNOUNCEMENT ID</label>
+            <input type="text" class="form-control" id="announcement_id" name="announcement_id" placeholder="Enter PDF ID" value="<%= selected_announcement.announcement_id %>" required readonly />
+        </div>
+        <div class="form-group">
+            <label for="announcement_title">ANNOUNCEMENT TITLE</label>
+            <input type="text" class="form-control" id="announcement_title" name="announcement_title" placeholder="Enter Announcement Title" value="<%= selected_announcement.announcement_title %>" required />
+        </div>
+    
+        <div class="form-group">
+            <label for="DateTime">Date and Time</label>
+            <input type="text" class="form-control" id="DateTime" name="DateTime"  value="<%= selected_announcement.DateTime %>" required readonly/>
+        </div>
+    
+        <button type="submit" class="btn btn-primary">UPDATE</button>
+    </form>
+  </div>
+</div>
+
+</body>
+</html>

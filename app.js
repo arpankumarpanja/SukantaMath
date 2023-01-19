@@ -12,6 +12,7 @@ const pdf_routes = require('./routes/pdfRoutes');
 const student_routes = require('./routes/studentRoutes');
 const Login_Logout_routes = require('./routes/LoginLogoutRoutes');
 const admin_routes = require('./routes/adminRouter');
+const announcement_routes=require('./routes/announcementRoutes');
 const { requireAuth, checkUser, requireAdminPermission} = require('./middlewares/userAuthMiddlware');
 
 
@@ -47,9 +48,15 @@ const connection=require('./dbConfig');
 app.get('*', checkUser);
 // Default load page home
 app.get('/',(req, res) => {
-    res.render('Home',{
-        home_mssg: ""
-    });    
+    let sql = "SELECT * FROM announcementTable order by DateTime desc";
+    let query = connection.query(sql, (err, rows) => {
+        if(err) throw err;
+        var rows1=rows;
+        res.render('Home', {
+            announcements : rows,
+            home_mssg: ""
+        });
+    });   
 });
 
 
@@ -60,6 +67,7 @@ app.use(pdf_routes);
 app.use(student_routes);
 app.use(Login_Logout_routes);
 app.use(admin_routes);
+app.use(announcement_routes);
 
 
 // render courses from database as per education Level and course section

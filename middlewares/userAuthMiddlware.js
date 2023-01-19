@@ -33,11 +33,17 @@ const requireAdminPermission = (req, res, next) => {
   if (token) {
     jwt.verify(token, process.env.student_token_secret, async (err, decodedToken) => {
       if (err) {
-        console.log("requireAdminPermission Error: "+err);
+        console.log("requireAdminPermission Error: " + err);
         // res.redirect('/');
-        res.render('Home',{
-          home_mssg:""
-        })
+        let sql = "SELECT * FROM announcementTable order by DateTime desc";
+        let query = connection.query(sql, (err, rows) => {
+          if (err) throw err;
+          var rows1 = rows;
+          res.render('Home', {
+            announcements: rows,
+            home_mssg: ""
+          });
+        });
       } else {
           console.log("decodedToken: "+decodedToken.id);
           let permission_sql="SELECT * FROM studentTable WHERE student_id = "+decodedToken.id+"";
@@ -52,17 +58,29 @@ const requireAdminPermission = (req, res, next) => {
                       console.log(result[0].first_name+" "+result[0].last_name+" is a student of "+result[0].education_level+"-"+result[0].course_section);
                       next();
                     }
-                    else{
+                    else {
                       // res.send(result[0].first_name+" "+result[0].last_name+" is NOT a student of "+Education_Level+"->"+course_section);
-                      res.render('Home', {
-                        home_mssg: result[0].first_name+" "+result[0].last_name+", you are not a student of "+Education_Level+"->"+course_section
+                      let sql = "SELECT * FROM announcementTable order by DateTime desc";
+                      let query = connection.query(sql, (err, rows) => {
+                        if (err) throw err;
+                        var rows1 = rows;
+                        res.render('Home', {
+                          announcements: rows,
+                          home_mssg: result[0].first_name + " " + result[0].last_name + ", you are not a student of " + Education_Level + "->" + course_section
+                        });
                       });
                     }
                   }
-                else{
+                else {
                   // res.send("Permission status: "+result[0].permission+"\nAsk your Teacher to get permission........");
-                  res.render('Home', {
-                    home_mssg : "Permission status: "+result[0].permission+", Ask your Teacher to get permission........"
+                  let sql = "SELECT * FROM announcementTable order by DateTime desc";
+                  let query = connection.query(sql, (err, rows) => {
+                    if (err) throw err;
+                    var rows1 = rows;
+                    res.render('Home', {
+                      announcements: rows,
+                      home_mssg: "Permission status: " + result[0].permission + ", Ask your Teacher to get permission........"
+                    });
                   });
                 }
               }
