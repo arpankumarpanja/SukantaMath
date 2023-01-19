@@ -102,7 +102,7 @@ async function sendNewPasswordMail(data, email, password) {
         subject: 'New Password Generated for AlphaBitaGama',
         text: 'That was easy!',
         html: `<h1>Dear, ${data.first_name+" "+data.last_name}</h1>
-                <h3>You request for getting new password has Accepted:</h3>
+                <h3>Your request for getting new password has Accepted:</h3>
 
                 <div style="text-align: center; border: 2px solid black; padding:5px; background-color:LightGreen;">
                     </br></br><h3>This is Your Login Credentials With NEW PASSWORD:</h3>

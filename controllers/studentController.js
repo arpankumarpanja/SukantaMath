@@ -51,11 +51,11 @@ module.exports.SearchStudent_post = (req, res) => {
 
     // checking if enterd any pdf_name
     if(req.body.searched_first_name !== "" && checker==0){
-        condition+=` first_name LIKE '%${req.body.searched_first_name}%'`;
+        condition+=` first_name LIKE '%${req.body.searched_first_name.trim()}%'`;
         checker=1;
     }
     else if(req.body.searched_first_name !== "" && checker==1){
-        condition+=` and first_name LIKE '%${req.body.searched_first_name}%'`;
+        condition+=` and first_name LIKE '%${req.body.searched_first_name.trim()}%'`;
     }
 
     // checking if any comndition selected then only add the conditions
@@ -108,6 +108,7 @@ module.exports.updateStudentById_post= async(req, res) => {
                 "',  gurdian_name='"+req.body.gurdian_name+
                 "',  gurdian_ph='"+req.body.gurdian_ph+
                 "',  gender='"+req.body.gender+
+                "',  date_of_birth='"+req.body.date_of_birth+
                 "',  education_level='"+req.body.education_level+
                 "',  course_section='"+req.body.course_section+
                 "',  institution='"+req.body.institution+
