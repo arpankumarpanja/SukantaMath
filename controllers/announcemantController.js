@@ -50,9 +50,9 @@ module.exports.addAnnouncement_get=(req, res) => {
 
 // perfoming save/add operation to add new entry/record in database
 module.exports.saveAnnouncement_post=(req, res) => { 
-    // var dt = dateTime.create();
-    // var dt_formatted = dt.format('d-m-Y H:M:S');
-    var dt_formatted=getDateTime();
+    var dt = dateTime.create();
+    var dt_formatted = dt.format('d-m-Y H:M:S');
+    // var dt_formatted=getDateTime();
     let data = {announcement_title: req.body.announcement_title,
                 DateTime: dt_formatted,
             };
