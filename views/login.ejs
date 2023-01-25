@@ -16,8 +16,17 @@
     <!-- ------------ google recatcha v2 -------------- -->
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <title>Student Login</title>
+
+    <!-- special javascript and css for disable advance options -->
+    <script type="text/javascript" src="/javascript/disableDevoloper.js"></script>
+    <link rel="stylesheet" href="/css/disableDevoloper.css">
 </head>
 <body>
+
+    <!-- external javascript to disable devoloper or advance features -->
+    <div id="amm_drcfw_toast_msg"></div>
+
+    <!-- --- bootstrap alert--- -->
     <% if (login_mssg!="") { %>
     <div class="alert alert-warning alert-dismissible fade show" role="alert" 
     style="position: fixed; top: 2vh; margin: 5px; width: 95%; right: 1vh; z-index: 99;">
@@ -25,6 +34,8 @@
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
     <% } %>
+
+
 
     <!-- Section: Design Block -->
     <section class="text-center">

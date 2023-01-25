@@ -150,7 +150,7 @@ module.exports.register_post=async (req, res) => {
                 // res.send(results1[0].email+" already registerd.");
                 res.render('register',{
                     reg_mssg: results1[0].email+" already registerd."
-                }); 
+                });
             }
             else {
                 // var dt = dateTime.create();

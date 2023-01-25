@@ -45,7 +45,7 @@ module.exports.admin_login_post=async (req, res) => {
                 }
                 else{
                     console.log(results1[0].user_name+" Wrong Password.");
-                    res.send(results1[0].user_name+" Wrong Password.");
+                    res.send(req.body.user_name+" Wrong Password.");
                 }
             }
             else{
