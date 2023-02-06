@@ -55,7 +55,7 @@ Router.get('/DeletePdf/:pdfId', adminAuthMiddlware.requireAdminAuth, pdf_control
 
 
 // performing rendering google drive pdf to iframe to hide the google drive link
-Router.post('/ViewPdf', requireUserAuth.requireAuth, pdf_controller.viewPdfByLink_post);
+Router.post('/ViewPdf', requireUserAuth.requireAuth, requireUserAuth.checkUser, pdf_controller.viewPdfByLink_post);
 
 
 module.exports = Router;

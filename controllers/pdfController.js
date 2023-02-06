@@ -192,8 +192,13 @@ module.exports.deletePdfById_get=(req, res) => {
 
 // performing rendering google drive pdf to iframe
 module.exports.viewPdfByLink_post=(req, res) => {
-    const pdf_link = req.body.pdf_link;
-    res.render('pdf_viewer', {
-        pdf_url:pdf_link
+    const Selected_pdfId = req.body.pdf_link;
+    let sql = `Select pdf_link from pdfTable where pdf_id = ${Selected_pdfId}`;
+    let query = connection.query(sql,(err, result) => {
+        if(err) throw err;
+        console.log("pdf link: "+result[0].pdf_link);
+        res.render('pdf_viewer', {
+            pdf_url : result[0].pdf_link
+        });
     });
 }

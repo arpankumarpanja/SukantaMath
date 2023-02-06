@@ -24,10 +24,147 @@
             <h2 class="card-header text-center bg-gray-900" style="background-color: lightseagreen; color: white;">
                 <%= title %>
             </h2>
-            <h5 class="text-center" style="color: red;">* YOU CAN UPDATE YOUR PASSWORD ONLY, FOR OTHER CHANGES ASK YOUR
-                TEACHER *</h5>
+            <h6 class="text-center mt-1 mb-2 mx-2" style="color: crimson;">* YOU CAN UPDATE YOUR PASSWORD ONLY, FOR OTHER CHANGES ASK YOUR
+                TEACHER *</h6>
             <div class="card-body">
-                <form action="/UpdateStudentProfile" method="post">
+                <section style="background-color: #eee;">
+                    <div class="container py-3">
+                
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <div class="card mb-4">
+                                    <div class="card-body text-center">
+                                        <% if (selected_student.gender==="Male" ) { %>
+                                            <img src="image/male.jpg"
+                                            alt="avatar" class="rounded-circle img-fluid" style="height: 160px;">
+                                        <% } else{ %>
+                                            <img src="image/female.jpg"
+                                            alt="avatar" class="rounded-circle img-fluid" style="height: 160px;">
+                                        <% } %>  
+                                        <h5 class="my-3"><%= selected_student.student_id %> - <%= selected_student.first_name %> <%= selected_student.last_name %></h5>
+                                        <p class="text-muted mb-1"><%= selected_student.education_level %> - <%= selected_student.course_section %></p>
+                                        <p class="text-muted mb-1"><%= selected_student.institution %></p>
+                                        <p class="text-muted mb-4">Registered on: <%= selected_student.reg_DateTime %></p>
+                                        <div class="d-flex justify-content-center mb-2">
+                                            <button type="button" class="btn btn-primary">Follow</button>&nbsp;
+                                            <button type="button" class="btn btn-outline-primary ms-1">Message</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                
+                            <div class="col-lg-8">
+                                <div class="card mb-4">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <p class="mb-0">Email ID</p>
+                                            </div>
+                                            <div class="col-sm-9">
+                                                <p class="text-muted mb-0"><%= selected_student.email %></p>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <p class="mb-0">Phone NO</p>
+                                            </div>
+                                            <div class="col-sm-9">
+                                                <p class="text-muted mb-0"><%= selected_student.ph_no %></p>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <p class="mb-0">Gender</p>
+                                            </div>
+                                            <div class="col-sm-9">
+                                                <p class="text-muted mb-0"><%= selected_student.gender %></p>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <p class="mb-0">Date of Birth</p>
+                                            </div>
+                                            <div class="col-sm-9">
+                                                <p class="text-muted mb-0"><%= selected_student.date_of_birth %></p>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <p class="mb-0">Gurdian</p>
+                                            </div>
+                                            <div class="col-sm-9">
+                                                <p class="text-muted mb-0"><%= selected_student.gurdian_name %></p>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <p class="mb-0">Gurdian PH NO</p>
+                                            </div>
+                                            <div class="col-sm-9">
+                                                <p class="text-muted mb-0"><%= selected_student.gurdian_ph %></p>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <p class="mb-0">Your Address</p>
+                                            </div>
+                                            <div class="col-sm-9">
+                                                <p class="text-muted mb-0"><%= selected_student.address %></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <div class="card mb-2">
+                                    <div class="card-body text-center">
+                                        <% if (selected_student.permission==="Decline" ) { %>
+                                            <img src="image/denied-transparent.gif" alt="permission" class="rounded-circle img-fluid" style="width: 100px;">
+                                            <div class="d-flex justify-content-center mt-2 mb-2">
+                                                <button type="button" class="btn btn-danger ms-2">Permission : <%= selected_student.permission %>d</button>
+                                            </div>
+                                        <% } else{ %>
+                                            <img src="image/approved-transparent.gif" alt="permission" class="rounded-circle img-fluid" style="width: 100px;">
+                                            <div class="d-flex justify-content-center mt-2 mb-2">
+                                                <button type="button" class="btn btn-success ms-2">Permission : <%= selected_student.permission %>d</button>
+                                            </div>
+                                        <% } %>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-8 mb-4">
+                                <div class="card mb-2">
+                                    <div class="card-body">
+                                        <form action="/UpdateStudentProfile" method="post">
+                                            <input type="text" class="form-control" id="student_id" name="student_id" placeholder="Enter Student ID"
+                                                value="<%= selected_student.student_id %>" required readonly hidden />
+                                            <div class="form-outline mb-4">
+                                                <label class="form-label font-weight-bold mb-3" for="password" style="color: rgb(24, 39, 171);">Enter New Password to Change
+                                                    The Exisisting One</label>
+                                                <input type="password" id="password" class="form-control input-lg"
+                                                    placeholder="If You Want to Change Password Then Enter New Password" name="password" required />
+                                            </div>
+                                            <button type="submit" class="btn btn-primary btn-block btn-lg">UPDATE PASSWORD</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <br/>
+                <form action="/UpdateStudentProfile" method="post" hidden>
                     <!-- ---------- student id----------- -->
                     <div class="form-group">
                         <label for="student_id">STUDENT ID</label>
@@ -202,9 +339,10 @@
 
 
             <!-- 9. Payment Status -->
-            <div class="card-body border border-primary pt-0 pl-0 pr-0 mb-4 mt-5">
+            <div class="card-body border border-primary pt-0 pl-0 pr-0 mt-">
                 <h4 class="block p-1 text-center mb-3" style="background-color: lightseagreen; color: white;">Your
                     Payment Status</h4>
+                <h6 class="text-center mb-4 mx-2" style="color: rgb(24, 39, 171);">** You can pay online your due fees using  upi id - <b>dassukanta301@oksbi</b> or <b>9434176182@apl</b> **</h6>
                 <div class="row pl-md-5 pl-3 text-center">
                     <div class="row col-md-4">
                         <!-- 1.january -->

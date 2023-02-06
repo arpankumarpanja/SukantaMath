@@ -141,7 +141,7 @@ module.exports.login_get=(req, res) => {
 
 // add or register student details to database
 module.exports.register_post=async (req, res) => { 
-    let check_email_sql="SELECT * FROM studentTable WHERE email = '"+req.body.email+"'";
+    let check_email_sql="SELECT * FROM studentTable WHERE email = '"+req.body.email.trim()+"'";
     let query1 = connection.query(check_email_sql, async(err, results1) => {
         if(err) throw err;
         else{
@@ -168,7 +168,7 @@ module.exports.register_post=async (req, res) => {
                 let data = {
                     first_name: req.body.first_name,
                     last_name: req.body.last_name,
-                    email: req.body.email,
+                    email: req.body.email.trim(),
                     ph_no: req.body.ph_no,
                     gurdian_name: req.body.gurdian_name,
                     gurdian_ph: req.body.gurdian_ph,
@@ -203,7 +203,7 @@ module.exports.register_post=async (req, res) => {
 
 // login post check user with email and password from database
 module.exports.login_post=async (req, res) => { 
-    let check_email_sql="SELECT * FROM studentTable WHERE email = '"+req.body.email+"'";
+    let check_email_sql="SELECT * FROM studentTable WHERE email = '"+req.body.email.trim()+"'";
     let query1 = connection.query(check_email_sql, async(err, results1) => {
         if(err) throw err;
         else{
@@ -253,7 +253,7 @@ module.exports.forgotPassword_get=(req, res) => {
 
 // login post check user with email and date of birth from database to get a new password
 module.exports.ForgotPasswordPost=async (req, res) => { 
-    let check_email_sql="SELECT * FROM studentTable WHERE email = '"+req.body.email+"'";
+    let check_email_sql="SELECT * FROM studentTable WHERE email = '"+req.body.email.trim()+"'";
     let query1 = connection.query(check_email_sql, async(err, results1) => {
         if(err) throw err;
         else{
