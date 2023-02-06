@@ -15,6 +15,33 @@
     <script type="text/javascript" src="/javascript/disableDevoloper.js"></script>
     <link rel="stylesheet" href="/css/disableDevoloper.css">
 
+    <!-- css for watermark -->
+    <style>
+        .watermark {
+            position: absolute;
+            width: 100%;
+            font-weight: bold;
+            font-size: 20px;
+            text-align: center;
+            top: 45%;
+            z-index: 999;
+            display: block;
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(to right, #f32170,
+                    #ff6b08, #cf23cf, #eedd44);
+            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text;
+            transform: rotate(-30deg);
+        }
+    
+        /* If the screen size is 1200px wide or more, set the font-size to 80px */
+        @media (min-width: 800px) {
+            .watermark {
+                font-size: 35px;
+            }
+        }
+    </style>
+
     <!-- script to disable screenshot or print -->
     <script>
         document.addEventListener("keyup", function (e) {

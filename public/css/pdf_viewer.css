@@ -22,7 +22,7 @@ body{
     color: #fff;
 }
 
-.watermark {
+/* .watermark {
     position: absolute;
     width: 100%;
     font-weight: bold;
@@ -37,13 +37,13 @@ body{
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
     transform:rotate(-30deg);
-}
+} */
 /* If the screen size is 1200px wide or more, set the font-size to 80px */
-@media (min-width: 800px) {
+/* @media (min-width: 800px) {
     .watermark {
         font-size: 35px;
     }
-}
+} */
 
 /* If the screen size is smaller than 1200px, set the font-size to 80px */
 /* @media (min-width: 720px) {

@@ -196,7 +196,7 @@ module.exports.viewPdfByLink_post=(req, res) => {
     let sql = `Select pdf_link from pdfTable where pdf_id = ${Selected_pdfId}`;
     let query = connection.query(sql,(err, result) => {
         if(err) throw err;
-        console.log("pdf link: "+result[0].pdf_link);
+        // console.log("pdf link: "+result[0].pdf_link);
         res.render('pdf_viewer', {
             pdf_url : result[0].pdf_link
         });
